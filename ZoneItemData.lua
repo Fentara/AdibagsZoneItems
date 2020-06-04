@@ -1,11 +1,7 @@
---[[
-Datafile for AdiBags Zone Items
-]]
-local addonName, addon = ...
-	--ID^Category^Subcat^ZoneSetID^Item,
-	addon.arrEssence = {	"174288^Essence^Essence^10", --Breath of Everlasting Spirit
+local addonName, addon = ...	
+addon.arrEssence = {	"169694^Essence^Essence^10", --Aqueous Reliquary
+	"174288^Essence^Essence^10", --Breath of Everlasting Spirit
 	"174279^Essence^Essence^10", --Encrypted Ny'alothan Text
-	"169694^Essence^Essence^10", --Encrypted Ny'alothan Text
 	"174287^Essence^Essence^10", } --Sparks of Unwavering Strength
 addon.arrMechagon = {	"169868^Mechagon^-^5", --Anti-Gravity Pack
 	"167062^Mechagon^-^5", --Armored Vaultbot Key
@@ -41,8 +37,10 @@ addon.arrMechagon = {	"169868^Mechagon^-^5", --Anti-Gravity Pack
 	"168213^Mechagon^-^5", --Tensile Driveshaft
 	"167075^Mechagon^-^5", } --Ultrasafe Transporter: Mechagon
 addon.arrMissions = {	"127889^Missions^Garrison^11", --Ammo Reserves
+	"118344^Missions^Garrison^11", --Arcane Crystal
 	"120301^Missions^Garrison^11", --Armor Enhancement Token
 	"114116^Missions^Garrison^11", --Bag of Salvaged Goods
+	"114128^Missions^Garrison^11", --Balanced Weapon Enhancement
 	"113821^Missions^Garrison^11", --Battered Iron Horde Helmet
 	"125787^Missions^Garrison^11", --Bilge Pump
 	"125787^Missions^Garrison^11", --Bilge Pump
@@ -50,91 +48,91 @@ addon.arrMissions = {	"127889^Missions^Garrison^11", --Ammo Reserves
 	"114806^Missions^Garrison^11", --Blackrock Armor Set
 	"114081^Missions^Garrison^11", --Blackrock Weaponry
 	"127882^Missions^Garrison^11", --Blast Furnace
+	"147348^Missions^Garrison^11", --Bulky Armor Set
+	"114616^Missions^Garrison^11", --War Ravaged Weaponry
 	"113823^Missions^Garrison^11", --Crusted Iron Horde Pauldrons
+	"118340^Missions^Garrison^11", --Cyclical Power Converter
 	"128308^Missions^Garrison^11", --Draenic Armor Set
 	"128307^Missions^Garrison^11", --Draenic Weaponry
 	"127891^Missions^Garrison^11", --Extra Quarters
 	"127884^Missions^Garrison^11", --Felsmoke Launcher
 	"122272^Missions^Garrison^11", --Follower Ability Retraining Manual
+	"118354^Missions^Garrison^11", --Follower Retraining Certificate
 	"122273^Missions^Garrison^11", --Follower Trait Retraining Guide
 	"128314^Missions^Garrison^11", --Frozen Arms of a Hero
 	"128257^Missions^Garrison^11", --Ghostly Spyglass
 	"139419^Missions^Garrison^11", --Golden Banana
-	"114622^Missions^Garrison^11", --Goredrenched Weaponry
 	"114746^Missions^Garrison^11", --Goredrenched Armor Set
+	"114622^Missions^Garrison^11", --Goredrenched Weaponry
 	"118099^Missions^Garrison^11", --Gorian Artifact Fragment
 	"122582^Missions^Garrison^11", --Guide to Arakkoa Relations
 	"127881^Missions^Garrison^11", --Gyroscopic Internal Stabilizer
 	"118475^Missions^Garrison^11", --Hearthstone Strategy Guide
+	"114822^Missions^Garrison^11", --Heavily Reinforced Armor Enhancement
 	"127662^Missions^Garrison^11", --High Intensity Fog Lights
 	"128313^Missions^Garrison^11", --Huge Ogre Cache
 	"127880^Missions^Garrison^11", --Ice Cutter
 	"113681^Missions^Garrison^11", --Iron Horde Scraps
 	"140590^Missions^Garrison^11", --Large Crate of Salvage
 	"140760^Missions^Garrison^11", --Libram of Truth
-	"114131^Missions^Garrison^11", --Power Overrun Weapon Enhancement
 	"128659^Missions^Garrison^11", --Merry Supplies
 	"118897^Missions^Garrison^11", --Miner's Coffee
 	"122514^Missions^Garrison^11", --Mission Completion Orders
 	"122580^Missions^Garrison^11", --Ogre Buddy Handbook
-	"114129^Missions^Garrison^11", --Striking Weapon Enhancement
 	"117491^Missions^Garrison^11", --Ogre Waystone
+	"114131^Missions^Garrison^11", --Power Overrun Weapon Enhancement
 	"118903^Missions^Garrison^11", --Preserved Mining Pick
 	"127892^Missions^Garrison^11", --Q-43 Noisemaker Mines
+	"114745^Missions^Garrison^11", --Braced Armor Enhancement
 	"113822^Missions^Garrison^11", --Ravaged Iron Horde Belt
-	"128373^Missions^Garrison^11", --Rush Order: Shipyard
-	"114128^Missions^Garrison^11", --Balanced Weapon Enhancement
-	"118344^Missions^Garrison^11", --Arcane Crystal
-	"114822^Missions^Garrison^11", --Heavily Reinforced Armor Enhancement
 	"122576^Missions^Garrison^11", --Rush Order: Alchemy Lab
 	"122590^Missions^Garrison^11", --Rush Order: Enchanter's Study
 	"122591^Missions^Garrison^11", --Rush Order: Engineering Works
-	"118340^Missions^Garrison^11", --Cyclical Power Converter
 	"122592^Missions^Garrison^11", --Rush Order: Gem Boutique
 	"122593^Missions^Garrison^11", --Rush Order: Scribe's Quarters
+	"128373^Missions^Garrison^11", --Rush Order: Shipyard
 	"122594^Missions^Garrison^11", --Rush Order: Tailoring Emporium
-	"118723^Missions^Garrison^11", --Secrets of Draenor Jewelcrafting
 	"122595^Missions^Garrison^11", --Rush Order: The Forge
 	"122596^Missions^Garrison^11", --Rush Order: The Tannery
-	"147348^Missions^Garrison^11", --Bulky Armor Set
 	"139593^Missions^Garrison^11", --Sack of Salvaged Goods
 	"139594^Missions^Garrison^11", --Salvage Crate
+	"118723^Missions^Garrison^11", --Secrets of Draenor Jewelcrafting
+	"114129^Missions^Garrison^11", --Striking Weapon Enhancement
 	"127883^Missions^Garrison^11", --True Iron Rudder
 	"127894^Missions^Garrison^11", --Tuskarr Fishing Net
 	"127886^Missions^Garrison^11", --Unsinkable
-	"118354^Missions^Garrison^11", --Follower Retraining Certificate
 	"120302^Missions^Garrison^11", --Weapon Enhancement Token
 	"139428^Missions^Legion Missions^9", --A Master Plan
+	"140924^Missions^Legion Missions^9", --Ashtongue Beacon
+	"139802^Missions^Legion Missions^9", --Auspicious Fetish
+	"140582^Missions^Legion Missions^9", --Bottomless Flast
+	"152444^Missions^Legion Missions^9", --Exalted Xenedar Hammer
 	"139418^Missions^Legion Missions^9", --Healing Stream Totem
 	"139376^Missions^Legion Missions^9", --Healing Well
-	"139802^Missions^Legion Missions^9", --Auspicious Fetish
-	"139801^Missions^Legion Missions^9", --Lucky Doodad
-	"152443^Missions^Legion Missions^9", --Sanctified Armaments of the Light
-	"152931^Missions^Legion Missions^9", --Xenic Tincture
-	"152444^Missions^Legion Missions^9", --Exalted Xenedar Hammer
-	"152447^Missions^Legion Missions^9", --Lightburst Charge
-	"152445^Missions^Legion Missions^9", --Memento of the Lightforged
-	"152932^Missions^Legion Missions^9", --Runewarded Lightblade
-	"152446^Missions^Legion Missions^9", --Writ of Holy Orders
-	"139867^Missions^Legion Missions^9", --Justice Hammer
 	"140749^Missions^Legion Missions^9", --Horn of Winter
 	"138412^Missions^Legion Missions^9", --Iresoul's Healthstone
-	"140924^Missions^Legion Missions^9", --Ashtongue Beacon
+	"139867^Missions^Legion Missions^9", --Justice Hammer
 	"152095^Missions^Legion Missions^9", --Krokul Ridgestalker
+	"152447^Missions^Legion Missions^9", --Lightburst Charge
 	"152097^Missions^Legion Missions^9", --Lightforged Bulwark
+	"139801^Missions^Legion Missions^9", --Lucky Doodad
+	"152445^Missions^Legion Missions^9", --Memento of the Lightforged
 	"138883^Missions^Legion Missions^9", --Meryl's Conjured Refreshment
 	"140767^Missions^Legion Missions^9", --Pile of Bits and Bones
 	"140656^Missions^Legion Missions^9", --Rod of the Ascended
+	"152932^Missions^Legion Missions^9", --Runewarded Lightblade
+	"152443^Missions^Legion Missions^9", --Sanctified Armaments of the Light
+	"147553^Missions^Legion Missions^9", --Shard of Twisting Nether
 	"139177^Missions^Legion Missions^9", --Shattered Soul
 	"143605^Missions^Legion Missions^9", --Strange Ball of Energy
-	"147553^Missions^Legion Missions^9", --Shard of Twisting Nether
 	"143605^Missions^Legion Missions^9", --Strange Ball of Energy
 	"143850^Missions^Legion Missions^9", --Summon Grimtotem Warrior
 	"138410^Missions^Legion Missions^9", --Summoning Portal
-	"140582^Missions^Legion Missions^9", --Bottomless Flast
 	"141332^Missions^Legion Missions^9", --The Annals of Light and Shadow
 	"152096^Missions^Legion Missions^9", --Void-Purged Krokul
-	"139420^Missions^Legion Missions^9", } --Wild Mushroom
+	"139420^Missions^Legion Missions^9", --Wild Mushroom
+	"152446^Missions^Legion Missions^9", --Writ of Holy Orders
+	"152931^Missions^Legion Missions^9", } --Xenic Tincture
 addon.arrNazjatar = {	"170186^Nazjatar^-^6", --Abyss Pearl
 	"167910^Nazjatar^-^6", --Bag of Who-Knows-What
 	"169782^Nazjatar^-^6", --Beckoner's Rosetta Stone
@@ -189,15 +187,15 @@ addon.arrNazjatar = {	"170186^Nazjatar^-^6", --Abyss Pearl
 	"168053^Nazjatar^-^6", --Unusually Wise Hermit Crab
 	"170162^Nazjatar^-^6", --Waterlogged Toolbox
 	"170502^Nazjatar^-^6", --Waterlogged Toolbox
-	"170079^Nazjatar^Reputation^6", --Abyssal Conch
-	"170184^Nazjatar^Reputation^6", --Ancient Reefwalker Bark
-	"170167^Nazjatar^Reputation^6", --Eel Fillet
-	"170176^Nazjatar^Reputation^6", --Fathom Ray Wing
-	"170171^Nazjatar^Reputation^6", --Giant Crab Leg
-	"170085^Nazjatar^Reputation^6", --Naga Deployment Orders
-	"170183^Nazjatar^Reputation^6", --Reefwalker Bark
-	"170161^Nazjatar^Reputation^6", --Unusually Wise Hermit Crab
-	"169942^Nazjatar^Reputation^6", } --Vibrant Sea Blossom
+	"170079^Nazjatar^Reputation^12", --Abyssal Conch
+	"170184^Nazjatar^Reputation^12", --Ancient Reefwalker Bark
+	"170167^Nazjatar^Reputation^12", --Eel Fillet
+	"170176^Nazjatar^Reputation^12", --Fathom Ray Wing
+	"170171^Nazjatar^Reputation^12", --Giant Crab Leg
+	"170085^Nazjatar^Reputation^12", --Naga Deployment Orders
+	"170183^Nazjatar^Reputation^12", --Reefwalker Bark
+	"170161^Nazjatar^Reputation^12", --Unusually Wise Hermit Crab
+	"169942^Nazjatar^Reputation^12", } --Vibrant Sea Blossom
 addon.arrPatch8_3 = {	"174352^Patch8_3^Horrific Visions^8", --Baked Voidfin
 	"167788^Patch8_3^Horrific Visions^8", --Detoxifying Vial
 	"174350^Patch8_3^Horrific Visions^8", --Dubious Delight
@@ -241,16 +239,20 @@ addon.arrPatch8_3 = {	"174352^Patch8_3^Horrific Visions^8", --Baked Voidfin
 	"86547^Patch8_3^Vale^1", --Skyshard
 	"174758^Patch8_3^Vale^1", --Voidwarped Relic Fragment
 	"174927^Patch8_3^Vale^1", } --Zan-Tien Lasso
+addon.arrReputation = {	"152957^Reputation^Reputation^13", --Army of the Light Insignia
+	"152955^Reputation^Reputation^13", --Greater Army of the Light Insignia
+	"150926^Reputation^Reputation^13", --Greater Dreamweaver Insignia
+	"152464^Reputation^Reputation^13", --Greater Legionfall Insignia
+	"150925^Reputation^Reputation^13", --Greater Valarjar Insignia
+	"146950^Reputation^Reputation^13", --Legionfall Insignia
+	"117492^Reputation^Reputation^13", --Relic of Rukhmar
+	"94225^Reputation^Reputation^13", --Stolen Celestial Insignia
+	"94227^Reputation^Reputation^13", --Stolen Golden Lotus Insignia
+	"94226^Reputation^Reputation^13", --Stolen Klaxxi Insignia
+	"94223^Reputation^Reputation^13", } --Stolen Shado-Pan Insignia
 addon.arrTimeless = {	"103642^Timeless^Timeless Isle^4", --Book of the Ages
 	"103643^Timeless^Timeless Isle^4", --Dew of Eternal Morning
 	"104346^Timeless^Timeless Isle^4", --Golden Glider
 	"103641^Timeless^Timeless Isle^4", --Singing Crystal
 	"104287^Timeless^Timeless Isle^4", } --Windfeather Plume
-addon.arrReputation = {	"117492^Reputation^Reputation^-1", --Relic of Rukhmar
-	"152957^Reputation^Reputation^-1", --Army of the Light Insignia
-	"150926^Reputation^Reputation^-1", --Greater Dreamweaver Insignia
-	"152464^Reputation^Reputation^-1", --Greater Legionfall Insignia
-	"150925^Reputation^Reputation^-1", --Greater Valarjar Insignia
-	"152955^Reputation^Reputation^-1", --Greater Army of the Light Insignia
-	"146950^Reputation^Reputation^-1", } --Legionfall Insignia
 	
