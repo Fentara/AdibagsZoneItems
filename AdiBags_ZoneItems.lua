@@ -25,7 +25,9 @@ local kPfx2 = '|cff3CE13F' -- bright green1
 local kPfx3 = '|cff2FEB77' -- bright green2
 local kSfx = '|r'
 local kCurrBoAMin = 385
+-- Set special top-of-bags category for current zone's items
 local CURRENT_ZONE_ITEM = 'Current Zone Item'
+addon:SetCategoryOrder(CURRENT_ZONE_ITEM,80)
 -- Global Variables
 local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName, loadedZoneGroups
 
@@ -168,18 +170,22 @@ function setFilter:GetOptions()
           order = 32,
         },
 --[[         groupPVP = {
-          name = L['PVP Priority Items'],
-          desc = L['Moves PVP-related items to top of bags in Arenas, Battlegrounds as relevant for easier access.'],
+          name = L['PVP - NYI'],
+          desc = L['Not yet implemented.'],
+          --name = L['PVP Priority Items'],
+          --desc = L['Moves PVP-related items to top of bags in Arenas, Battlegrounds as relevant for easier access.'],
           type = 'toggle',
           order = 33,
         },
         groupInstanced = {
-          name = L['Party Supplies'],
-          desc = L['Prioritizes items for parties. Or raids. Moves consumables such as food, potions, and other enhancement/restoration items to top of bags in instanced content for easier access.'],
+          name = L['Party - NYI'],
+          desc = L['Not yet implemented.'],
+          --name = L['Party Supplies'],
+          --desc = L['Prioritizes items for parties. Or raids. Moves consumables such as food, potions, and other enhancement/restoration items to top of bags in instanced content for easier access.'],
           type = 'toggle',
           order = 34,
-        },
-      } ]]
+        }, ]]
+      }
     },
   }, addon:GetOptionHandler(self, false, function() return self:Update() end)
 end
@@ -219,7 +225,6 @@ local function loadMapIDs()
     loadedZoneGroups[id][2] = info.zGroup -- The Group's name
     loadedZoneGroups[id][3] = info.zGroupIds
   end -- end pairs loop 
-  addon:SetCategoryOrder(CURRENT_ZONE_ITEM,80)
 end
 
 ------------------------------------------------------------------------------
