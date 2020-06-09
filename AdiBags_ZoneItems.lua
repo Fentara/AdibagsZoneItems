@@ -1,85 +1,187 @@
 --[[
 AdiBags_ZoneItems - Groups  items for specific zones, expansions or activities together, an addition to Adirelle's fantastic bag addon AdiBags.
 Copyright 2020 Ggreg Taylor
-All rights reserved.
 --]]
-
 local addon = LibStub('AceAddon-3.0'):GetAddon('AdiBags')
 local L = setmetatable({}, {__index = addon.L})
-local addonName, data = ...
 local setFilter = addon:RegisterFilter("ZoneItems", 93, 'ABEvent-1.0')
 setFilter.uiName = L['Zone Specific Items']
 setFilter.uiDesc = L['Group zone specific items together.']
+local addonName, data  = ...
+local Ggbug = true
+
+if Ggbug == true then print('AdiBags - Zone Items loaded.') end
 
 -- debugging values
-local Ggbug = true
-local debugBagSlot = {0,8}
-
+local debugBagSlot = {1,21}
+local lookForId = 174287
+local testChannel = -1
+-- General Constants
+local errNOT_FOUND = -101
 local kCategory = 'Zone Item'
 local kPfx = '|cff00ffff'  -- teal
 --local kPfx2 = '|cffFF99FF' -- bright PINK
 local kPfx2 = '|cff3CE13F' -- bright green1
 local kPfx3 = '|cff2FEB77' -- bright green2
-
 local kSfx = '|r'
 local kCurrBoAMin = 385
+local CURRENT_ZONE_ITEM = 'Current Zone Item'
+-- Global Variables
+local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName, loadedZoneGroups
 
-local kzVale = 1
-local kzUldum = 2
-local kz83Zones = 3
-local kzTimeless = 4
-local kzMechagon = 5
-local kzNazjatar = 6
-local kzBrokenIsles = 7
-local kzVisions = 8
-local kzLegionMissions = 9
-local kzEssence = 10
-local kzGarrison = 11
-local kzNazRep = 12
-local kzReputation = 13
-
-local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName
-local dataIsLoaded = false
-local tooltip
-local ZONE_ITEMS = {}
-local currSubset = {}
-local ZoneGroupList = {}
 
 -- Expansion #: 1-Vanilla, 2-TBC, 3-LK, 4-MoP, 5-Cata, 6-WoD, 7-Legion, 8-BFA, 9-Shadowlands
-
-
-local function gPrint(slotData, ...)
-  if not Ggbug then return end
-  if slotData.bag == nil then
-    print(...) 
-  else
-    if slotData.bag == debugBagSlot[1] and slotData.slot == debugBagSlot[2] then 
-      print(...)
-    end
-  end
+------------------------------------------------------------------------------
+function setFilter:OnInitialize(b)
+  self.db = addon.db:RegisterNamespace('ZoneItems', {
+    profile = { 
+      enable = true ,
+      enableZoneItem = true,
+      groupBoATokens = true,
+      groupEssences = true,
+      groupMechagon = true,
+      groupMission = true,
+      groupNazjatar = true,
+      groupTimeless = true,
+      groupPatch8_3 = true,
+      groupCorrupted = true,
+		  groupRepItems  = true,
+      zonePriority = true,
+      groupInstanced = false,
+      groupPVP = false,
+  },
+    char = {  },
+  })
 end
-
-local function loadMapIDs()
-  currZoneId = C_Map.GetBestMapForUnit("player")
-  if currZoneId ~= nil then
-    currMap = C_Map.GetMapInfo(currZoneId)
-    currMapID = currMap.mapID
-    mapName = currMap.name
-    parentMapID = C_Map.GetMapInfo(currMapID).parentMapID
-    parentMapName = C_Map.GetMapInfo(parentMapID).name
-  end
-  -- loop ZoneGroupList to check if current zone match for sequencing
-  local zMatch, groupLabel
-  for r = 1, #ZoneGroupList do
-    zMatch = ZoneGroupList[r][3]
-      for c in zMatch:gmatch('([^,]+)') do 
-      if tonumber(currZoneId) == tonumber(c) then
-         groupLabel = kPfx2 .. ZoneGroupList[r][2] .. kSfx
-         --addon:SetCategoryOrder   NEEDS DEBUGGING TO MAKE ORDER PROPERLY
-         addon:SetCategoryOrder(groupLabel,80)
-      end
-    end
-  end
+function setFilter:Update()
+  self:SendMessage('AdiBags_FiltersChanged')
+end
+function setFilter:OnEnable()
+  addon:OnEnable()
+end
+function setFilter:OnDisable()
+  addon:UpdateFilters()
+end
+function setFilter:GetOptions()
+  return {
+    enable = {
+      name = L['Enable Zone Item groups'],
+      desc = L['Check this if you want to automatically seperate Nazjatar and Mechagon items.'],
+      type = 'toggle',
+      order = 25,
+    },
+    groupSetCurrentFirst = {
+      name = L['Current Zone First in Bags'],
+      type = L['group'],
+      inline = true,
+      order = 20,
+      args = {
+        _desc = {
+          name = L['Group items relevant for the current zone(s) to top of bags for quicker access.'],
+          type = 'description',
+          order = 10,
+        }, 
+        zonePriority = {
+          name = L['Enable'],
+          desc = L['Only a monster would disable this feature. You aren\'t a monster now, are you?'],
+          type = 'toggle',
+          order = 33,
+        },
+      }
+    },
+    groupSetZoneItemSubgroups = {
+      name = L['Battle for Azeroth Groups'],
+      type = L['group'],
+      inline = true,
+      order = 26,
+      args = {
+        _desc = {
+          name = L['Select optional additional sub-groupings.'],
+          type = 'description',
+          order = 10,
+        }, 
+        groupMechagon = {
+          name = L['Mechagon'],
+          desc = L['Group items specific to Mechagon seperately.'],
+          type = 'toggle',
+          order = 26,
+        },
+        groupNazjatar = {
+          name = L['Nazjatar'],
+          desc = L['Group items specific to Nazjatar seperately.'],
+          type = 'toggle',
+          order = 27,
+        },
+        groupEssences = {
+          name = L['Heart Essences'],
+          desc = L['Group Heart of Azeroth essences seperately.'],
+          type = 'toggle',
+          order = 29,
+        },
+        groupPatch8_3 = {
+          name = L['Uldum, Vale, Visions'],
+          desc = L['Group items added in Patch 8.3 for Uldum, Horrific Visions, and Vale of Eternal Blossoms. They really should leave that poor Vale alone.'],
+          type = 'toggle',
+          order = 30,
+        },
+        groupCorrupted = {
+          name = L[CORRUPTION_TOOLTIP_TITLE],
+          desc = L['Group corrupted items.'],
+          type = 'toggle',
+          order = 34,
+        },
+      }
+    },
+    otherMiscGroups = {
+      name = L['Other Groupings'],
+      type = L['group'],
+      inline = true,
+      order = 29,
+      args = {
+        _desc = {
+          name = L['Group filters for Prior Expansions and More.'],
+          type = 'description',
+          order = 10,
+        }, 
+        groupBoATokens = {
+          name = L['BoA Gear Tokens'],
+          desc = L['Group Benthic and Black Empire Bind on Account gear tokens seperately.'],
+          type = 'toggle',
+          order = 25,
+        },
+        groupRepItems = {
+          name = L['Reputation Items'],
+          desc = L['Group Reputation on-use and repeatable turn-in items seperately.'],
+          type = 'toggle',
+          order = 28,
+        },
+        groupMission = {
+          name = L['Garrison & Class Hall'],
+          desc = L[GARRISON_LOCATION_TOOLTIP .. '/' ..ORDER_HALL_MISSIONS],
+          type = 'toggle',
+          order = 31,
+        },
+        groupTimeless = {
+          name = L['Pandaria Timeless Isle'],
+          desc = L['Pandaria Timeless Isle-specific items.'],
+          type = 'toggle',
+          order = 32,
+        },
+--[[         groupPVP = {
+          name = L['PVP Priority Items'],
+          desc = L['Moves PVP-related items to top of bags in Arenas, Battlegrounds as relevant for easier access.'],
+          type = 'toggle',
+          order = 33,
+        },
+        groupInstanced = {
+          name = L['Party Supplies'],
+          desc = L['Prioritizes items for parties. Or raids. Moves consumables such as food, potions, and other enhancement/restoration items to top of bags in instanced content for easier access.'],
+          type = 'toggle',
+          order = 34,
+        },
+      } ]]
+    },
+  }, addon:GetOptionHandler(self, false, function() return self:Update() end)
 end
 
 local function ttCreate()
@@ -96,237 +198,110 @@ local function ttCreate()
   tip.rightside = rightside
   return tip
 end
+local tooltip = tooltip or ttCreate()
 
-
-function setFilter:OnInitialize(b)
-  self.db = addon.db:RegisterNamespace('ZoneItems', {
-    profile = { 
-      enable = true ,
-      enableZoneItem = true,
-      groupBoATokens = true,
-      groupEssences = true,
-      groupMechagon = true,
-      groupMission = true,
-      groupNazjatar = true,
-      groupTimeless = true,
-      groupPatch8_3 = true,
-      groupCorrupted = true,
-		  groupRepItems  = true,
-		  zonePriority = true,
-  },
-    char = {  },
-  })
-end
-function setFilter:Update()
-  self:SendMessage('AdiBags_FiltersChanged')
-end
-function setFilter:OnEnable()
-  dataIsLoaded = false
-  checkDataLoaded()
-	addon:UpdateFilters()
-end
-function setFilter:OnDisable()
-  addon:UpdateFilters()
-end
-------------------------------------------------------------------------------
-function setFilter:GetOptions()
-  return {
-    enableZoneItem = {
-      name = L['Enable Zone Item groups'],
-      desc = L['Check this if you want to automatically seperate Nazjatar and Mechagon items.'],
-      type = 'toggle',
-      order = 25,
-    },
-    groupSetZoneItemSubgroups = {
-      name = L['Further Zone Item Sub-Grouping Options'],
-      type = L['group'],
-      inline = true,
-      order = 26,
-      args = {
-        _desc = {
-          name = L['Select optional additional sub-groupings.'],
-          type = 'description',
-          order = 10,
-        }, 
-        groupBoATokens = {
-          name = L['BoA Gear Tokens'],
-          desc = L['Group Benthic and Black Empire Bind on Account gear tokens seperately.'],
-          type = 'toggle',
-          order = 25,
-        },
-        groupMechagon = {
-          name = L['Mechagon'],
-          desc = L['Group items specific to Mechagon seperately.'],
-          type = 'toggle',
-          order = 26,
-        },
-        groupNazjatar = {
-          name = L['Nazjatar'],
-          desc = L['Group items specific to Nazjatar seperately.'],
-          type = 'toggle',
-          order = 27,
-        },
-        groupRepItems = {
-          name = L['Reputation Items'],
-          desc = L['Group Reputation on-use and repeatable turn-in items seperately.'],
-          type = 'toggle',
-          order = 28,
-        },
-        groupEssences = {
-          name = L['Heart Essences'],
-          desc = L['Group Heart of Azeroth essences seperately.'],
-          type = 'toggle',
-          order = 29,
-        },
-        groupPatch8_3 = {
-          name = L['8.3: Uldum, Vale, Visions'],
-          desc = L['Group items added in Patch 8.3 for Uldum, Horrific Visions, and Vale of Eternal Blossoms. They really should leave that poor Vale alone.'],
-          type = 'toggle',
-          order = 30,
-        },
-        groupMission = {
-          name = L['Garrison & Class Hall'],
-          desc = L[GARRISON_LOCATION_TOOLTIP .. '/' ..ORDER_HALL_MISSIONS],
-          type = 'toggle',
-          order = 31,
-        },
-        groupTimeless = {
-          name = L['Pandaria Timeless Isle'],
-          desc = L['Pandaria Timeless Isle-specific items.'],
-          type = 'toggle',
-          order = 32,
-        },
-        zonePriority = {
-          name = L['Current Zone First'],
-          desc = L['Group current zone\'s items first in bags.'],
-          type = 'toggle',
-          order = 33,
-        },
-        groupCorrupted = {
-          name = L[CORRUPTION_TOOLTIP_TITLE],
-          desc = L['Group corrupted items.'],
-          type = 'toggle',
-          order = 34,
-        },
-      }
-    },
-  }, addon:GetOptionHandler(self, false, function() return self:Update() end)
+local function loadMapIDs()
+  currZoneId = C_Map.GetBestMapForUnit("player")
+  if currZoneId ~= nil then
+    currMap = C_Map.GetMapInfo(currZoneId)
+    currMapID = currMap.mapID
+    mapName = currMap.name
+    parentMapID = C_Map.GetMapInfo(currMapID).parentMapID
+    parentMapName = C_Map.GetMapInfo(parentMapID).name
+  end
+  -- check if current zone is matched in the arrZoneCodes table set lable to priority color and move top of bags
+  loadedZoneGroups = {}
+  for i = 1, #data.arrZoneCodes do loadedZoneGroups[i] = {} end
+  for id, info in pairs(data.arrZoneCodes) do
+    --[1]= { zGroup="Vale", zGroupIds={1530,1570,380,390} },
+    local zGroupIds = info.zGroupIds
+    loadedZoneGroups[id][1] = id
+    loadedZoneGroups[id][2] = info.zGroup -- The Group's name
+    loadedZoneGroups[id][3] = info.zGroupIds
+  end -- end pairs loop 
+  addon:SetCategoryOrder(CURRENT_ZONE_ITEM,80)
 end
 
 ------------------------------------------------------------------------------
-function LoadArrayData(groupEnabled, original, additional)
-  if not groupEnabled then
-    return original
-  elseif groupEnabled then
-    if next(original) == nil then
-      return additional
-    else
-      for _, v in pairs(additional) do
-        table.insert(original, v)
+function setFilter:checkItem(itemId, dataArray)
+  -- returns zoneID if itemId finds a match in the array otherwise null
+  --itemId, zoneId, qty-1, label
+  for id, info in pairs(dataArray) do
+    --if tonumber(itemId) == lookForId then  ('check item', itemId, info.itemId)
+    if tonumber(itemId) == tonumber(info.itemId) then
+      for x = 1, #loadedZoneGroups[info.zoneId][3] do
+        if tonumber(loadedZoneGroups[info.zoneId][3][x]) == tonumber(currZoneId) then
+          if self.db.profile.zonePriority then
+            return true, kPfx2 .. loadedZoneGroups[info.zoneId][2] .. kSfx, CURRENT_ZONE_ITEM
+          else
+            return true, kPfx2 .. loadedZoneGroups[info.zoneId][2] .. kSfx, kCategory
+          end
+        end
       end
-      return original
-    end
-  end
-end
-
-function checkDataLoaded()
-  if dataIsLoaded == false then 
-    dataIsLoaded = true
-    tooltip = tooltip or ttCreate()
-
-    ZONE_ITEMS = {}
-    -- Only load items seleted to be grouped from options
---[[     if setFilter.db.profile.testingToggle then 
-      ZONE_ITEMS = data.arrZONE_ITEMS
-    else
- ]]
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupMechagon , ZONE_ITEMS, data.arrMechagon)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupPatch8_3 , ZONE_ITEMS, data.arrPatch8_3)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupMission , ZONE_ITEMS, data.arrMissions)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupEssences , ZONE_ITEMS, data.arrEssence)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupNazjatar , ZONE_ITEMS, data.arrNazjatar)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupTimeless , ZONE_ITEMS, data.arrTimeless)
-      ZONE_ITEMS = LoadArrayData(setFilter.db.profile.groupRepItems  , ZONE_ITEMS, data.arrReputation)
-      --print('#data.arrReputation', #data.arrReputation, setFilter.db.profile.groupRepItems)
-    --end
-    arrZoneCodes = {
-      "1^Vale^1530,1570,380,390",
-      "2^Uldum^1571,249,1527",
-      "3^Vale/Uldum^1571,249,1527,1530,1570,380",
-      "4^Timeless Isle^554",
-      "5^Mechagon^1462",
-      "6^Nazjatar^1355",
-      "7^BfA Zones^2161,2162,2160,2156,2103,2158,1504,1462",
-      "8^Horrific Visions^1469,1470, 1473",
-      "9^Legion Missions^647,648,626,717,734,735,24,702,695,747,719,831,883,887,726,739",
-      "10^Heart Essence^1473",
-      "11^Garrison^582,590,525",
-      "12^REP: Nazjatar^1355",
-      "13^Reputation^-1",}
-
-    local currRow
-    local i
-    for r = 1, #arrZoneCodes do -- load ZoneGroupList array
-      i = 1
-      currRow = arrZoneCodes[r]
-      ZoneGroupList[r] = {}
-      for v in currRow:gmatch('([^^]+)') do
-        ZoneGroupList[r][i] = v
-        i = i + 1
-      end 
-    end
-  end
-  addon:SetCategoryOrder('Current Zone', 99)
-
-end
-------------------------------------------------------------------------------
-function setLabel(groupSubcat, itemZone)
-  --set color is zone = curr zone
-  nItemZone = tonumber(itemZone)
-  nCurrZoneId = tonumber(currZoneId)
-  local groupDisplayName = ZoneGroupList[nItemZone][2]
-  for w in ZoneGroupList[nItemZone][3]:gmatch('([^,]+)') do 
-    if nCurrZoneId == tonumber(w) and setFilter.db.profile.zonePriority then
-      groupDisplayName = ZoneGroupList[nItemZone][2]
-      groupDisplayName = kPfx2 .. L[groupDisplayName] .. kSfx
-      return groupDisplayName, 'Current Zone'
+      return true, kPfx .. loadedZoneGroups[info.zoneId][2] .. kSfx, kCategory
     end 
   end
-  groupDisplayName = ZoneGroupList[nItemZone][2]
-  return kPfx .. L[groupDisplayName] .. kSfx, kCategory
+  return false, false, false
 end
 
 ------------------------------------------------------------------------------
 function setFilter:Filter(slotData)
   --Exit zoneItem addon if not enabled
-  if self.db.profile.enableZoneItem == nil or self.db.profile.enableZoneItem == false then return end
-  if dataIsLoaded == false then checkDataLoaded() end
-  if currZoneId == nil or currZoneId ~= C_Map.GetBestMapForUnit("player") then loadMapIDs() end
-
-	local ziID, ziZone, ziCat, ziSubcat, ziName, currSubCategory, bagItemID
-  bagItemID = slotData.itemId
-  --funky but GetItemInfo doesn't return corruption info so call specifically for itemlink
+  if not self.db.profile.enable then return end
+  if currZoneId ~= C_Map.GetBestMapForUnit("player") or currZoneId == nil then  loadMapIDs() end
+	local bagItemID = slotData.itemId
+  --funky but GetItemInfo doesn't return corruption info so call specifically for itemLink
   itemLink = GetContainerItemLink(slotData.bag, slotData.slot)
   local itemName,_, itemRarity, itemLevel,itemMinLevel, itemType, itemSubType,_,_, _, _, itemClassID, itemSubClassID, bindType, expacID = GetItemInfo(itemLink)
-
-  
-
   if itemLevel == nil then itemLevel = 0 end
-  currSubset = {}
-  local retLabel, retCat
--- Start checking groupings
-	-- Heart of Azeroth Essences
-	if self.db.profile.groupEssences and (itemClassID == 0 and itemSubClassID == 8 and itemRarity == 6 and expacID ==7) then
-    --return kPfx .. 'Heart Essence'.. kSfx, 'Essence'
-    retLabel, retCat = setLabel('',ziZone)
-    return retLabel, retCat
+
+  -- Start checking groupings
+  -- Heart of Azeroth Essences
+  if self.db.profile.groupEssences and (itemClassID == 0 and itemSubClassID == 8 and itemRarity == 6 and expacID ==7) then
+    return kPfx .. 'Heart Essence'.. kSfx, 'Essence'
+  end
   --Corrupted gear 
-  elseif self.db.profile.groupCorrupted and IsCorruptedItem(itemLink) == true then
-  --elseif IsCorruptedItem(itemLink) == true then
+  if self.db.profile.groupCorrupted and IsCorruptedItem(itemLink) == true then
     currSubCategory = CORRUPTED_ITEM_LOOT_LABEL
-    return currSubCategory, kCategory
--- BoA Gear Tokens, non-obsolete
-  elseif self.db.profile.groupBoATokens == true and itemLevel >=kCurrBoAMin then
+    return kPfx.. currSubCategory .. kSfx, kCategory
+  end
+    -- Heart Essences
+  if self.db.profile.groupEssences then
+    local itemFound, groupLabel, retCategory = setFilter:checkItem(bagItemID, data.arrEssence) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+  -- Garrison and Order Hall  
+  if self.db.profile.groupMission then
+    local itemFound, groupLabel, retCategory = setFilter:checkItem(bagItemID, data.arrMissions) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+  -- Patch 8.3 Vale/Uldum/Horiffic Visions
+  if self.db.profile.groupPatch8_3 then
+    local itemFound, groupLabel, retCategory = setFilter:checkItem(bagItemID, data.arrPatch8_3) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+  -- Pandaria Timeless Isle
+  if self.db.profile.groupTimeless then
+    local itemFound, groupLabel, retCategory = setFilter:checkItem(bagItemID, data.arrTimeless) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+  -- Patch 8.2 Nazjatar
+  if self.db.profile.groupNazjatar then
+    -- check Nazjatar general items
+    local itemFound, groupLabel, retCategory = setFilter:checkItem(bagItemID, data.arrNazjatar) 
+    if itemFound == true  then  return groupLabel, retCategory end
+  end
+  -- Patch 8.2 Mechagon
+  if self.db.profile.groupMechagon then
+    local itemFound, groupLabel = setFilter:checkItem(bagItemID, data.arrMechagon) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+  if self.db.profile.groupRepItems then
+    local itemFound, groupLabel = setFilter:checkItem(bagItemID, data.arrReputation) 
+    if itemFound == true  then return groupLabel, retCategory end
+  end
+   -- BoA Gear Tokens, non-obsolete, check last
+  if self.db.profile.groupBoATokens == true and itemLevel >= kCurrBoAMin and (itemClassID == LE_ITEM_CLASS_ARMOR or itemSubClassID == LE_ITEM_CLASS_WEAPON) then
     tooltip:SetOwner(UIParent,"ANCHOR_NONE")
     tooltip:ClearLines()
     if slotData.bag == BANK_CONTAINER then
@@ -342,41 +317,7 @@ function setFilter:Filter(slotData)
       currSubCategory = L['Current BoA']
       return currSubCategory, kCategory
     end
-  else
-    if ZONE_ITEMS == nil then return end
+  end
 
- 		for x = 1, #ZONE_ITEMS do
-			local currSubset = {}
-			local currZoneItem = ZONE_ITEMS[x]
-			local index = 1
-			for w in currZoneItem:gmatch('([^^]+)') do 
-				currSubset[index]  = w 
-				index = index +1
-			end
-			--ID^Category^Subcat^Zone(s) Match^Item,
-			ziID = currSubset[1]
-			ziCat = currSubset[2]
-			ziSubcat = currSubset[3]
-			if currSubset[4] == nil then
-				ziZone = ''
-			else
-				ziZone = tonumber(currSubset[4])
-			end
-      if tonumber(bagItemID) == tonumber(ziID) then
-        if ((self.db.profile.groupNazjatar) and (ziZone==kzNazjatar  or ziZone==kzNazRep)) or
-          (self.db.profile.groupRepItems ==true and ziZone==kzReputation) or
-          (self.db.profile.groupMission==true and (ziZone == kzGarrison or ziZone == kzLegionMissions)) or
-          (self.db.profile.groupMechagon==true and ziZone==kzMechagon) or
-          (self.db.profile.groupEssences==true and ziZone == kzEssence) or
-          (self.db.profile.groupPatch8_3==true and (ziZone == kzUldum or ziZone == kzVale or ziZone == kz83Zones  or ziZone == kzVisions )) or
-          (self.db.profile.groupTimeless==true and ziZone == kzTimeless) then
-          return  setLabel(ziSubcat, ziZone)
-				end -- category matching from #Zone_Items
-			end -- end bagItemID = ziID
-		end -- end for #ZONE_ITEMS
-	end -- end checking groupings
-end 
-
-
-
+end
 

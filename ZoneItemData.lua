@@ -1,258 +1,293 @@
-local addonName, addon = ...	
-addon.arrEssence = {	"169694^Essence^Essence^10", --Aqueous Reliquary
-	"174288^Essence^Essence^10", --Breath of Everlasting Spirit
-	"174279^Essence^Essence^10", --Encrypted Ny'alothan Text
-	"174287^Essence^Essence^10", } --Sparks of Unwavering Strength
-addon.arrMechagon = {	"169868^Mechagon^-^5", --Anti-Gravity Pack
-	"167062^Mechagon^-^5", --Armored Vaultbot Key
-	"168233^Mechagon^-^5", --Bawld-371
-	"168045^Mechagon^-^5", --Beastbot Power Pack
-	"167832^Mechagon^-^5", --Canned Minnows
-	"168327^Mechagon^-^5", --Chain Ignitercoil
-	"166972^Mechagon^-^5", --Emergency Powerpack
-	"166973^Mechagon^-^5", --Emergency Repair Kit
-	"166971^Mechagon^-^5", --Empty Energy Cell
-	"166970^Mechagon^-^5", --Energy Cell
-	"168961^Mechagon^-^5", --Exothermic Evaporator Coil
-	"168832^Mechagon^-^5", --Galvanic Oscillator
-	"168217^Mechagon^-^5", --Hardened Spring
-	"168952^Mechagon^-^5", --Hardened Spring
-	"167649^Mechagon^-^5", --Hundred-Fathom Lure
-	"167562^Mechagon^-^5", --Ionized Minnow
-	"169872^Mechagon^-^5", --Irontide Lockbox Key
-	"169878^Mechagon^-^5", --Irradiated Undercoat
-	"168215^Mechagon^-^5", --Machined Gear Assembly
-	"168950^Mechagon^-^5", --Machined Gear Assembly
-	"169873^Mechagon^-^5", --Mechanized Supply Key
-	"167071^Mechagon^-^5", --Mechano-Treat
-	"169218^Mechagon^-^5", --Old Rusty Key
-	"169675^Mechagon^-^5", --Orange Paint Filled Bladder
-	"169114^Mechagon^-^5", --Personal Time Displacer
-	"169470^Mechagon^-^5", --Pressure Relief Valve
-	"169610^Mechagon^-^5", --S.P.A.R.E. Crate
-	"168262^Mechagon^-^5", --Sentry Fish
-	"166846^Mechagon^-^5", --Spare Parts
-	"168216^Mechagon^-^5", --Tempered Plating
-	"168951^Mechagon^-^5", --Tempered Plating
-	"168213^Mechagon^-^5", --Tensile Driveshaft
-	"167075^Mechagon^-^5", } --Ultrasafe Transporter: Mechagon
-addon.arrMissions = {	"127889^Missions^Garrison^11", --Ammo Reserves
-	"118344^Missions^Garrison^11", --Arcane Crystal
-	"120301^Missions^Garrison^11", --Armor Enhancement Token
-	"114116^Missions^Garrison^11", --Bag of Salvaged Goods
-	"114128^Missions^Garrison^11", --Balanced Weapon Enhancement
-	"113821^Missions^Garrison^11", --Battered Iron Horde Helmet
-	"125787^Missions^Garrison^11", --Bilge Pump
-	"125787^Missions^Garrison^11", --Bilge Pump
-	"124099^Missions^Garrison^11", --Blackfang Claw
-	"114806^Missions^Garrison^11", --Blackrock Armor Set
-	"114081^Missions^Garrison^11", --Blackrock Weaponry
-	"127882^Missions^Garrison^11", --Blast Furnace
-	"147348^Missions^Garrison^11", --Bulky Armor Set
-	"114616^Missions^Garrison^11", --War Ravaged Weaponry
-	"113823^Missions^Garrison^11", --Crusted Iron Horde Pauldrons
-	"118340^Missions^Garrison^11", --Cyclical Power Converter
-	"128308^Missions^Garrison^11", --Draenic Armor Set
-	"128307^Missions^Garrison^11", --Draenic Weaponry
-	"127891^Missions^Garrison^11", --Extra Quarters
-	"127884^Missions^Garrison^11", --Felsmoke Launcher
-	"122272^Missions^Garrison^11", --Follower Ability Retraining Manual
-	"118354^Missions^Garrison^11", --Follower Retraining Certificate
-	"122273^Missions^Garrison^11", --Follower Trait Retraining Guide
-	"128314^Missions^Garrison^11", --Frozen Arms of a Hero
-	"128257^Missions^Garrison^11", --Ghostly Spyglass
-	"139419^Missions^Garrison^11", --Golden Banana
-	"114746^Missions^Garrison^11", --Goredrenched Armor Set
-	"114622^Missions^Garrison^11", --Goredrenched Weaponry
-	"118099^Missions^Garrison^11", --Gorian Artifact Fragment
-	"122582^Missions^Garrison^11", --Guide to Arakkoa Relations
-	"127881^Missions^Garrison^11", --Gyroscopic Internal Stabilizer
-	"118475^Missions^Garrison^11", --Hearthstone Strategy Guide
-	"114822^Missions^Garrison^11", --Heavily Reinforced Armor Enhancement
-	"127662^Missions^Garrison^11", --High Intensity Fog Lights
-	"128313^Missions^Garrison^11", --Huge Ogre Cache
-	"127880^Missions^Garrison^11", --Ice Cutter
-	"113681^Missions^Garrison^11", --Iron Horde Scraps
-	"140590^Missions^Garrison^11", --Large Crate of Salvage
-	"140760^Missions^Garrison^11", --Libram of Truth
-	"128659^Missions^Garrison^11", --Merry Supplies
-	"118897^Missions^Garrison^11", --Miner's Coffee
-	"122514^Missions^Garrison^11", --Mission Completion Orders
-	"122580^Missions^Garrison^11", --Ogre Buddy Handbook
-	"117491^Missions^Garrison^11", --Ogre Waystone
-	"114131^Missions^Garrison^11", --Power Overrun Weapon Enhancement
-	"118903^Missions^Garrison^11", --Preserved Mining Pick
-	"127892^Missions^Garrison^11", --Q-43 Noisemaker Mines
-	"114745^Missions^Garrison^11", --Braced Armor Enhancement
-	"113822^Missions^Garrison^11", --Ravaged Iron Horde Belt
-	"122576^Missions^Garrison^11", --Rush Order: Alchemy Lab
-	"122590^Missions^Garrison^11", --Rush Order: Enchanter's Study
-	"122591^Missions^Garrison^11", --Rush Order: Engineering Works
-	"122592^Missions^Garrison^11", --Rush Order: Gem Boutique
-	"122593^Missions^Garrison^11", --Rush Order: Scribe's Quarters
-	"128373^Missions^Garrison^11", --Rush Order: Shipyard
-	"122594^Missions^Garrison^11", --Rush Order: Tailoring Emporium
-	"122595^Missions^Garrison^11", --Rush Order: The Forge
-	"122596^Missions^Garrison^11", --Rush Order: The Tannery
-	"139593^Missions^Garrison^11", --Sack of Salvaged Goods
-	"139594^Missions^Garrison^11", --Salvage Crate
-	"118723^Missions^Garrison^11", --Secrets of Draenor Jewelcrafting
-	"114129^Missions^Garrison^11", --Striking Weapon Enhancement
-	"127883^Missions^Garrison^11", --True Iron Rudder
-	"127894^Missions^Garrison^11", --Tuskarr Fishing Net
-	"127886^Missions^Garrison^11", --Unsinkable
-	"120302^Missions^Garrison^11", --Weapon Enhancement Token
-	"139428^Missions^Legion Missions^9", --A Master Plan
-	"140924^Missions^Legion Missions^9", --Ashtongue Beacon
-	"139802^Missions^Legion Missions^9", --Auspicious Fetish
-	"140582^Missions^Legion Missions^9", --Bottomless Flast
-	"152444^Missions^Legion Missions^9", --Exalted Xenedar Hammer
-	"139418^Missions^Legion Missions^9", --Healing Stream Totem
-	"139376^Missions^Legion Missions^9", --Healing Well
-	"140749^Missions^Legion Missions^9", --Horn of Winter
-	"138412^Missions^Legion Missions^9", --Iresoul's Healthstone
-	"139867^Missions^Legion Missions^9", --Justice Hammer
-	"152095^Missions^Legion Missions^9", --Krokul Ridgestalker
-	"152447^Missions^Legion Missions^9", --Lightburst Charge
-	"152097^Missions^Legion Missions^9", --Lightforged Bulwark
-	"139801^Missions^Legion Missions^9", --Lucky Doodad
-	"152445^Missions^Legion Missions^9", --Memento of the Lightforged
-	"138883^Missions^Legion Missions^9", --Meryl's Conjured Refreshment
-	"140767^Missions^Legion Missions^9", --Pile of Bits and Bones
-	"140656^Missions^Legion Missions^9", --Rod of the Ascended
-	"152932^Missions^Legion Missions^9", --Runewarded Lightblade
-	"152443^Missions^Legion Missions^9", --Sanctified Armaments of the Light
-	"147553^Missions^Legion Missions^9", --Shard of Twisting Nether
-	"139177^Missions^Legion Missions^9", --Shattered Soul
-	"143605^Missions^Legion Missions^9", --Strange Ball of Energy
-	"143605^Missions^Legion Missions^9", --Strange Ball of Energy
-	"143850^Missions^Legion Missions^9", --Summon Grimtotem Warrior
-	"138410^Missions^Legion Missions^9", --Summoning Portal
-	"141332^Missions^Legion Missions^9", --The Annals of Light and Shadow
-	"152096^Missions^Legion Missions^9", --Void-Purged Krokul
-	"139420^Missions^Legion Missions^9", --Wild Mushroom
-	"152446^Missions^Legion Missions^9", --Writ of Holy Orders
-	"152931^Missions^Legion Missions^9", } --Xenic Tincture
-addon.arrNazjatar = {	"170186^Nazjatar^-^6", --Abyss Pearl
-	"167910^Nazjatar^-^6", --Bag of Who-Knows-What
-	"169782^Nazjatar^-^6", --Beckoner's Rosetta Stone
-	"170189^Nazjatar^-^6", --Blind Eye
-	"167012^Nazjatar^-^6", --Brinestone Pickaxe
-	"168081^Nazjatar^-^6", --Brinestone Pickaxe
-	"167059^Nazjatar^-^6", --Chum
-	"167060^Nazjatar^-^6", --Chum
-	"168155^Nazjatar^-^6", --Chum
-	"168159^Nazjatar^-^6", --Chum
-	"167923^Nazjatar^-^6", --Clean Murloc Sock
-	"169783^Nazjatar^-^6", --Cultist Pinky Finger
-	"167905^Nazjatar^-^6", --Curious Murloc Horn
-	"167916^Nazjatar^-^6", --Dirty Murloc Sock
-	"167903^Nazjatar^-^6", --Disintegrating Sand Sculpture
-	"170472^Nazjatar^-^6", --Encrusted Coin
-	"167907^Nazjatar^-^6", --Extra-Slimy Snail
-	"168094^Nazjatar^-^6", --Faintly Humming Sea Stones
-	"167906^Nazjatar^-^6", --Flatulent Fish
-	"166888^Nazjatar^-^6", --Germinating Seed
-	"167786^Nazjatar^-^6", --Germinating Seed
-	"167909^Nazjatar^-^6", --Ghost Food
-	"167913^Nazjatar^-^6", --Healthy Murloc Lunch
-	"168666^Nazjatar^-^6", --Hefty Glimmershell
-	"170100^Nazjatar^-^6", --Hungry Herald's Tentacle Taco
-	"167914^Nazjatar^-^6", --Jar of Fish Faces
-	"167911^Nazjatar^-^6", --Just Regular Butter
-	"170512^Nazjatar^-^6", --Lesser Benthic Arcanocrystal
-	"170547^Nazjatar^-^6", --Mardivas's Arcane Cache Key
-	"168161^Nazjatar^-^6", --Molted Shell
-	"168232^Nazjatar^-^6", --Murloco's 'Fish' Tacos
-	"170153^Nazjatar^-^6", --Ominous Looking Tome
-	"169781^Nazjatar^-^6", --Overwhelmingly-Alluring Idol
-	"167902^Nazjatar^-^6", --Particularly Dense Rock
-	"168097^Nazjatar^-^6", --Pilfered Armor Crate
-	"167893^Nazjatar^-^6", --Prismatic Crystal
-	"169780^Nazjatar^-^6", --Pulsating Blood Stone
-	"170180^Nazjatar^-^6", --Razorshell
-	"168261^Nazjatar^-^6", --Reinforced Cache Key
-	"167077^Nazjatar^-^6", --Scrying Stone
-	"167908^Nazjatar^-^6", --Sea Giant Foot Dust
-	"170191^Nazjatar^-^6", --Skeletal Hand
-	"167896^Nazjatar^-^6", --Slimy Naga Eyeball
-	"167904^Nazjatar^-^6", --Smelly Pile of Gloop
-	"169332^Nazjatar^-^6", --Strange Mineralized Water
-	"169334^Nazjatar^-^6", --Strange Oceanic Sediment
-	"169333^Nazjatar^-^6", --Strange Volcanic Rock
-	"167915^Nazjatar^-^6", --Sweet Sea Vegetable
-	"170181^Nazjatar^-^6", --Tidal Guard
-	"167912^Nazjatar^-^6", --Unidentified Mass
-	"170158^Nazjatar^-^6", --Unspeakable Pearl Idol
-	"168053^Nazjatar^-^6", --Unusually Wise Hermit Crab
-	"170162^Nazjatar^-^6", --Waterlogged Toolbox
-	"170502^Nazjatar^-^6", --Waterlogged Toolbox
-	"170079^Nazjatar^Reputation^12", --Abyssal Conch
-	"170184^Nazjatar^Reputation^12", --Ancient Reefwalker Bark
-	"170167^Nazjatar^Reputation^12", --Eel Fillet
-	"170176^Nazjatar^Reputation^12", --Fathom Ray Wing
-	"170171^Nazjatar^Reputation^12", --Giant Crab Leg
-	"170085^Nazjatar^Reputation^12", --Naga Deployment Orders
-	"170183^Nazjatar^Reputation^12", --Reefwalker Bark
-	"170161^Nazjatar^Reputation^12", --Unusually Wise Hermit Crab
-	"169942^Nazjatar^Reputation^12", } --Vibrant Sea Blossom
-addon.arrPatch8_3 = {	"174352^Patch8_3^Horrific Visions^8", --Baked Voidfin
-	"167788^Patch8_3^Horrific Visions^8", --Detoxifying Vial
-	"174350^Patch8_3^Horrific Visions^8", --Dubious Delight
-	"172072^Patch8_3^Horrific Visions^8", --Experimental Vial
-	"172947^Patch8_3^Horrific Visions^8", --Faceless Mask of Dark Imagination
-	"174349^Patch8_3^Horrific Visions^8", --Ghastly Goulash
-	"174348^Patch8_3^Horrific Visions^8", --Grilled Gnasher
-	"171352^Patch8_3^Horrific Visions^9", --Horrific Core
-	"171335^Patch8_3^Horrific Visions^9", --Horrific Core
-	"174351^Patch8_3^Horrific Visions^8", --K'Bab
-	"174045^Patch8_3^Horrific Visions^8", --Orb of Dark Portents
-	"174046^Patch8_3^Horrific Visions^8", --Orb of Visions
-	"167027^Patch8_3^Horrific Visions^8", --Portable Clarity Beam
-	"169294^Patch8_3^Horrific Visions^8", --Resilient Soul
-	"171212^Patch8_3^Horrific Visions^8", --Sanity Restoration Orb
-	"173888^Patch8_3^Horrific Visions^8", --Shard of Self Sacrifice
-	"173363^Patch8_3^Horrific Visions^8", --Vessel of Horrific Visions
-	"173293^Patch8_3^Horrific Visions^8", --Vial of Self Preservation
-	"172494^Patch8_3^Patch 8.3^3", --Baruk Idol
-	"171347^Patch8_3^Patch 8.3^8", --Corrupted Bone Fragment
-	"174768^Patch8_3^Patch 8.3^3", --Cursed Relic
-	"175150^Patch8_3^Patch 8.3^2", --Self-Shaping Amber
-	"171334^Patch8_3^Patch 8.3^8", --Void-Touched Cloth
-	"174761^Patch8_3^Uldum^2", --Aqir Relic
-	"174756^Patch8_3^Uldum^2", --Aqir Relic Fragment
-	"174837^Patch8_3^Uldum^2", --Decaying Fusion Core
-	"174325^Patch8_3^Uldum^2", --Fire Bomb
-	"174858^Patch8_3^Uldum^2", --Gersahl Greens
-	"168160^Patch8_3^Uldum^2", --Jeweled Scarab Figurine
-	"174867^Patch8_3^Uldum^2", --Shard of Corruption
-	"168271^Patch8_3^Uldum^2", --Stolen Ramkahen Banner
-	"171208^Patch8_3^Uldum^2", --Suntouched Amulet
-	"168267^Patch8_3^Uldum^2", --Suntouched Figurine
-	"174765^Patch8_3^Uldum^2", --Tol'vir Relic
-	"174764^Patch8_3^Uldum^2", --Tol'vir Relic Fragment
-	"172495^Patch8_3^Vale^1", --Anima Orb
-	"174766^Patch8_3^Vale^1", --Mantid Relic
-	"174760^Patch8_3^Vale^1", --Mantid Relic Fragment
-	"174767^Patch8_3^Vale^1", --Mogu Relic
-	"174759^Patch8_3^Vale^1", --Mogu Relic Fragment
-	"86547^Patch8_3^Vale^1", --Skyshard
-	"174758^Patch8_3^Vale^1", --Voidwarped Relic Fragment
-	"174927^Patch8_3^Vale^1", } --Zan-Tien Lasso
-addon.arrReputation = {	"152957^Reputation^Reputation^13", --Army of the Light Insignia
-	"152955^Reputation^Reputation^13", --Greater Army of the Light Insignia
-	"150926^Reputation^Reputation^13", --Greater Dreamweaver Insignia
-	"152464^Reputation^Reputation^13", --Greater Legionfall Insignia
-	"150925^Reputation^Reputation^13", --Greater Valarjar Insignia
-	"146950^Reputation^Reputation^13", --Legionfall Insignia
-	"117492^Reputation^Reputation^13", --Relic of Rukhmar
-	"94225^Reputation^Reputation^13", --Stolen Celestial Insignia
-	"94227^Reputation^Reputation^13", --Stolen Golden Lotus Insignia
-	"94226^Reputation^Reputation^13", --Stolen Klaxxi Insignia
-	"94223^Reputation^Reputation^13", } --Stolen Shado-Pan Insignia
-addon.arrTimeless = {	"103642^Timeless^Timeless Isle^4", --Book of the Ages
-	"103643^Timeless^Timeless Isle^4", --Dew of Eternal Morning
-	"104346^Timeless^Timeless Isle^4", --Golden Glider
-	"103641^Timeless^Timeless Isle^4", --Singing Crystal
-	"104287^Timeless^Timeless Isle^4", } --Windfeather Plume
+local _, data  = ...        	 
+-- ZoneID Data	 
+data.arrZoneCodes = {	 
+[1]= { zGroup="Vale", zGroupIds={1530,1570,380,390} },	 
+[2]= { zGroup="Uldum", zGroupIds={1571,249,1527} },	 
+[3]= { zGroup="Vale/Uldum", zGroupIds={1571,249,1527,1530,1570,380} },	 
+[4]= { zGroup="Timeless Isle", zGroupIds={554} },	 
+[5]= { zGroup="Mechagon", zGroupIds={1462} },	 
+[6]= { zGroup="Nazjatar", zGroupIds={1355} },	 
+[7]= { zGroup="BfA Zones", zGroupIds={2161,2162,2160,2156,2103,2158,1504,1462} },	 
+[8]= { zGroup="Horrific Visions", zGroupIds={1469,1470, 1473} },	 
+[9]= { zGroup="Legion Missions", zGroupIds={647,648,626,717,734,735,24,702,695,747,719,831,883,887,726,739} },	 
+[10]= { zGroup="Heart Essence", zGroupIds={1473} },	 
+[11]= { zGroup="Garrison", zGroupIds={582,590,525} },	 
+[12]= { zGroup="REP: Nazjatar", zGroupIds={1355} },	 
+[13]= { zGroup="Reputation", zGroupIds={-1} } ,}	 
+-- Debugging Item field names	 
+data.kGetItemInfoVars = {'itemName', 'itemLink', 'itemRarity', 'itemLevel', 'itemMinLevel', 'itemType', 'itemSubType', 'itemStackCount', 'itemEquipLoc', 'itemIcon', 'itemSellPrice', 'itemClassID', 'itemSubClassID', 'bindType', 'expacID', 'itemSetID', 'isCraftingReagent'}	 
+	-- [id] = { itemId=ID, zoneId=ZoneSetID, qty=Qty, label="Label" }, } --Category: Item
+data.arrEssence= {	[1] = { itemId=169694, zoneId=10, qty=-1, label="" },--Essence: Aqueous Reliquary
+	[2] = { itemId=174288, zoneId=10, qty=-1, label="" },--Essence: Breath of Everlasting Spirit
+	[3] = { itemId=174279, zoneId=10, qty=-1, label="" },--Essence: Encrypted Ny'alothan Text
+	[4] = { itemId=174287, zoneId=10, qty=-1, label="" }, } --Essence: Sparks of Unwavering Strength
+data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mechagon: Anti-Gravity Pack
+	[2] = { itemId=167062, zoneId=5, qty=-1, label="" },--Mechagon: Armored Vaultbot Key
+	[3] = { itemId=168233, zoneId=5, qty=-1, label="" },--Mechagon: Bawld-371
+	[4] = { itemId=168045, zoneId=5, qty=-1, label="" },--Mechagon: Beastbot Power Pack
+	[5] = { itemId=167832, zoneId=5, qty=-1, label="" },--Mechagon: Canned Minnows
+	[6] = { itemId=168327, zoneId=5, qty=-1, label="" },--Mechagon: Chain Ignitercoil
+	[7] = { itemId=166972, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Powerpack
+	[8] = { itemId=166973, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Repair Kit
+	[9] = { itemId=166971, zoneId=5, qty=-1, label="" },--Mechagon: Empty Energy Cell
+	[10] = { itemId=166970, zoneId=5, qty=-1, label="" },--Mechagon: Energy Cell
+	[11] = { itemId=168961, zoneId=5, qty=-1, label="" },--Mechagon: Exothermic Evaporator Coil
+	[12] = { itemId=168832, zoneId=5, qty=-1, label="" },--Mechagon: Galvanic Oscillator
+	[13] = { itemId=168217, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
+	[14] = { itemId=168952, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
+	[15] = { itemId=167649, zoneId=5, qty=-1, label="" },--Mechagon: Hundred-Fathom Lure
+	[16] = { itemId=167562, zoneId=5, qty=-1, label="" },--Mechagon: Ionized Minnow
+	[17] = { itemId=169872, zoneId=5, qty=-1, label="" },--Mechagon: Irontide Lockbox Key
+	[18] = { itemId=169878, zoneId=5, qty=-1, label="" },--Mechagon: Irradiated Undercoat
+	[19] = { itemId=168215, zoneId=5, qty=-1, label="" },--Mechagon: Machined Gear Assembly
+	[20] = { itemId=168950, zoneId=5, qty=-1, label="" },--Mechagon: Machined Gear Assembly
+	[21] = { itemId=169873, zoneId=5, qty=-1, label="" },--Mechagon: Mechanized Supply Key
+	[22] = { itemId=167071, zoneId=5, qty=-1, label="" },--Mechagon: Mechano-Treat
+	[23] = { itemId=169218, zoneId=5, qty=-1, label="" },--Mechagon: Old Rusty Key
+	[24] = { itemId=169675, zoneId=5, qty=-1, label="" },--Mechagon: Orange Paint Filled Bladder
+	[25] = { itemId=169114, zoneId=5, qty=-1, label="" },--Mechagon: Personal Time Displacer
+	[26] = { itemId=169470, zoneId=5, qty=-1, label="" },--Mechagon: Pressure Relief Valve
+	[27] = { itemId=169610, zoneId=5, qty=-1, label="" },--Mechagon: S.P.A.R.E. Crate
+	[28] = { itemId=168262, zoneId=5, qty=-1, label="" },--Mechagon: Sentry Fish
+	[29] = { itemId=166846, zoneId=5, qty=-1, label="" },--Mechagon: Spare Parts
+	[30] = { itemId=168216, zoneId=5, qty=-1, label="" },--Mechagon: Tempered Plating
+	[31] = { itemId=168951, zoneId=5, qty=-1, label="" },--Mechagon: Tempered Plating
+	[32] = { itemId=168213, zoneId=5, qty=-1, label="" },--Mechagon: Tensile Driveshaft
+	[33] = { itemId=167075, zoneId=5, qty=-1, label="" }, } --Mechagon: Ultrasafe Transporter: Mechagon
+data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missions: A Master Plan
+	[2] = { itemId=127889, zoneId=11, qty=-1, label="" },--Missions: Ammo Reserves
+	[3] = { itemId=118344, zoneId=11, qty=-1, label="" },--Missions: Arcane Crystal
+	[4] = { itemId=120301, zoneId=11, qty=-1, label="" },--Missions: Armor Enhancement Token
+	[5] = { itemId=140924, zoneId=9, qty=-1, label="" },--Missions: Ashtongue Beacon
+	[6] = { itemId=139802, zoneId=9, qty=-1, label="" },--Missions: Auspicious Fetish
+	[7] = { itemId=114116, zoneId=11, qty=-1, label="" },--Missions: Bag of Salvaged Goods
+	[8] = { itemId=114128, zoneId=11, qty=-1, label="" },--Missions: Balanced Weapon Enhancement
+	[9] = { itemId=113821, zoneId=11, qty=-1, label="" },--Missions: Battered Iron Horde Helmet
+	[10] = { itemId=125787, zoneId=11, qty=-1, label="" },--Missions: Bilge Pump
+	[11] = { itemId=125787, zoneId=11, qty=-1, label="" },--Missions: Bilge Pump
+	[12] = { itemId=124099, zoneId=11, qty=-1, label="" },--Missions: Blackfang Claw
+	[13] = { itemId=114806, zoneId=11, qty=-1, label="" },--Missions: Blackrock Armor Set
+	[14] = { itemId=114081, zoneId=11, qty=-1, label="" },--Missions: Blackrock Weaponry
+	[15] = { itemId=127882, zoneId=11, qty=-1, label="" },--Missions: Blast Furnace
+	[16] = { itemId=140582, zoneId=9, qty=-1, label="" },--Missions: Bottomless Flast
+	[17] = { itemId=114745, zoneId=11, qty=-1, label="" },--Missions: Braced Armor Enhancement
+	[18] = { itemId=147348, zoneId=11, qty=-1, label="" },--Missions: Bulky Armor Set
+	[19] = { itemId=113823, zoneId=11, qty=-1, label="" },--Missions: Crusted Iron Horde Pauldrons
+	[20] = { itemId=118340, zoneId=11, qty=-1, label="" },--Missions: Cyclical Power Converter
+	[21] = { itemId=128308, zoneId=11, qty=-1, label="" },--Missions: Draenic Armor Set
+	[22] = { itemId=128307, zoneId=11, qty=-1, label="" },--Missions: Draenic Weaponry
+	[23] = { itemId=152444, zoneId=9, qty=-1, label="" },--Missions: Exalted Xenedar Hammer
+	[24] = { itemId=127891, zoneId=11, qty=-1, label="" },--Missions: Extra Quarters
+	[25] = { itemId=127884, zoneId=11, qty=-1, label="" },--Missions: Felsmoke Launcher
+	[26] = { itemId=122272, zoneId=11, qty=-1, label="" },--Missions: Follower Ability Retraining Manual
+	[27] = { itemId=118354, zoneId=11, qty=-1, label="" },--Missions: Follower Retraining Certificate
+	[28] = { itemId=122273, zoneId=11, qty=-1, label="" },--Missions: Follower Trait Retraining Guide
+	[29] = { itemId=128314, zoneId=11, qty=-1, label="" },--Missions: Frozen Arms of a Hero
+	[30] = { itemId=128257, zoneId=11, qty=-1, label="" },--Missions: Ghostly Spyglass
+	[31] = { itemId=139419, zoneId=11, qty=-1, label="" },--Missions: Golden Banana
+	[32] = { itemId=114746, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Armor Set
+	[33] = { itemId=114622, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Weaponry
+	[34] = { itemId=118099, zoneId=11, qty=-1, label="" },--Missions: Gorian Artifact Fragment
+	[35] = { itemId=122582, zoneId=11, qty=-1, label="" },--Missions: Guide to Arakkoa Relations
+	[36] = { itemId=127881, zoneId=11, qty=-1, label="" },--Missions: Gyroscopic Internal Stabilizer
+	[37] = { itemId=139418, zoneId=9, qty=-1, label="" },--Missions: Healing Stream Totem
+	[38] = { itemId=139376, zoneId=9, qty=-1, label="" },--Missions: Healing Well
+	[39] = { itemId=118475, zoneId=11, qty=-1, label="" },--Missions: Hearthstone Strategy Guide
+	[40] = { itemId=114822, zoneId=11, qty=-1, label="" },--Missions: Heavily Reinforced Armor Enhancement
+	[41] = { itemId=127662, zoneId=11, qty=-1, label="" },--Missions: High Intensity Fog Lights
+	[42] = { itemId=140749, zoneId=9, qty=-1, label="" },--Missions: Horn of Winter
+	[43] = { itemId=128313, zoneId=11, qty=-1, label="" },--Missions: Huge Ogre Cache
+	[44] = { itemId=127880, zoneId=11, qty=-1, label="" },--Missions: Ice Cutter
+	[45] = { itemId=138412, zoneId=9, qty=-1, label="" },--Missions: Iresoul's Healthstone
+	[46] = { itemId=113681, zoneId=11, qty=-1, label="" },--Missions: Iron Horde Scraps
+	[47] = { itemId=139867, zoneId=9, qty=-1, label="" },--Missions: Justice Hammer
+	[48] = { itemId=152095, zoneId=9, qty=-1, label="" },--Missions: Krokul Ridgestalker
+	[49] = { itemId=140590, zoneId=11, qty=-1, label="" },--Missions: Large Crate of Salvage
+	[50] = { itemId=140760, zoneId=11, qty=-1, label="" },--Missions: Libram of Truth
+	[51] = { itemId=152447, zoneId=9, qty=-1, label="" },--Missions: Lightburst Charge
+	[52] = { itemId=152097, zoneId=9, qty=-1, label="" },--Missions: Lightforged Bulwark
+	[53] = { itemId=139801, zoneId=9, qty=-1, label="" },--Missions: Lucky Doodad
+	[54] = { itemId=152445, zoneId=9, qty=-1, label="" },--Missions: Memento of the Lightforged
+	[55] = { itemId=128659, zoneId=11, qty=-1, label="" },--Missions: Merry Supplies
+	[56] = { itemId=138883, zoneId=9, qty=-1, label="" },--Missions: Meryl's Conjured Refreshment
+	[57] = { itemId=118897, zoneId=11, qty=-1, label="" },--Missions: Miner's Coffee
+	[58] = { itemId=122514, zoneId=11, qty=-1, label="" },--Missions: Mission Completion Orders
+	[59] = { itemId=122580, zoneId=11, qty=-1, label="" },--Missions: Ogre Buddy Handbook
+	[60] = { itemId=117491, zoneId=11, qty=-1, label="" },--Missions: Ogre Waystone
+	[61] = { itemId=140767, zoneId=9, qty=-1, label="" },--Missions: Pile of Bits and Bones
+	[62] = { itemId=114131, zoneId=11, qty=-1, label="" },--Missions: Power Overrun Weapon Enhancement
+	[63] = { itemId=118903, zoneId=11, qty=-1, label="" },--Missions: Preserved Mining Pick
+	[64] = { itemId=127892, zoneId=11, qty=-1, label="" },--Missions: Q-43 Noisemaker Mines
+	[65] = { itemId=113822, zoneId=11, qty=-1, label="" },--Missions: Ravaged Iron Horde Belt
+	[66] = { itemId=140656, zoneId=9, qty=-1, label="" },--Missions: Rod of the Ascended
+	[67] = { itemId=152932, zoneId=9, qty=-1, label="" },--Missions: Runewarded Lightblade
+	[68] = { itemId=122576, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Alchemy Lab
+	[69] = { itemId=122590, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Enchanter's Study
+	[70] = { itemId=122591, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Engineering Works
+	[71] = { itemId=122592, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Gem Boutique
+	[72] = { itemId=122593, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Scribe's Quarters
+	[73] = { itemId=128373, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Shipyard
+	[74] = { itemId=122594, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Tailoring Emporium
+	[75] = { itemId=122595, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Forge
+	[76] = { itemId=122596, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Tannery
+	[77] = { itemId=139593, zoneId=11, qty=-1, label="" },--Missions: Sack of Salvaged Goods
+	[78] = { itemId=139594, zoneId=11, qty=-1, label="" },--Missions: Salvage Crate
+	[79] = { itemId=152443, zoneId=9, qty=-1, label="" },--Missions: Sanctified Armaments of the Light
+	[80] = { itemId=118723, zoneId=11, qty=-1, label="" },--Missions: Secrets of Draenor Jewelcrafting
+	[81] = { itemId=147553, zoneId=9, qty=-1, label="" },--Missions: Shard of Twisting Nether
+	[82] = { itemId=139177, zoneId=9, qty=-1, label="" },--Missions: Shattered Soul
+	[83] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
+	[84] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
+	[85] = { itemId=114129, zoneId=11, qty=-1, label="" },--Missions: Striking Weapon Enhancement
+	[86] = { itemId=143850, zoneId=9, qty=-1, label="" },--Missions: Summon Grimtotem Warrior
+	[87] = { itemId=138410, zoneId=9, qty=-1, label="" },--Missions: Summoning Portal
+	[88] = { itemId=141332, zoneId=9, qty=-1, label="" },--Missions: The Annals of Light and Shadow
+	[89] = { itemId=127883, zoneId=11, qty=-1, label="" },--Missions: True Iron Rudder
+	[90] = { itemId=127894, zoneId=11, qty=-1, label="" },--Missions: Tuskarr Fishing Net
+	[91] = { itemId=127886, zoneId=11, qty=-1, label="" },--Missions: Unsinkable
+	[92] = { itemId=152096, zoneId=9, qty=-1, label="" },--Missions: Void-Purged Krokul
+	[93] = { itemId=114616, zoneId=11, qty=-1, label="" },--Missions: War Ravaged Weaponry
+	[94] = { itemId=120302, zoneId=11, qty=-1, label="" },--Missions: Weapon Enhancement Token
+	[95] = { itemId=139420, zoneId=9, qty=-1, label="" },--Missions: Wild Mushroom
+	[96] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
+	[97] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
+data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazjatar: Abyss Pearl
+	[2] = { itemId=170079, zoneId=12, qty=-1, label="" },--Nazjatar: Abyssal Conch
+	[3] = { itemId=170184, zoneId=12, qty=-1, label="" },--Nazjatar: Ancient Reefwalker Bark
+	[4] = { itemId=167910, zoneId=6, qty=-1, label="" },--Nazjatar: Bag of Who-Knows-What
+	[5] = { itemId=169782, zoneId=6, qty=-1, label="" },--Nazjatar: Beckoner's Rosetta Stone
+	[6] = { itemId=170189, zoneId=6, qty=-1, label="" },--Nazjatar: Blind Eye
+	[7] = { itemId=167012, zoneId=6, qty=-1, label="" },--Nazjatar: Brinestone Pickaxe
+	[8] = { itemId=168081, zoneId=6, qty=-1, label="" },--Nazjatar: Brinestone Pickaxe
+	[9] = { itemId=167059, zoneId=6, qty=-1, label="" },--Nazjatar: Chum
+	[10] = { itemId=167060, zoneId=6, qty=-1, label="" },--Nazjatar: Chum
+	[11] = { itemId=168155, zoneId=6, qty=-1, label="" },--Nazjatar: Chum
+	[12] = { itemId=168159, zoneId=6, qty=-1, label="" },--Nazjatar: Chum
+	[13] = { itemId=167923, zoneId=6, qty=-1, label="" },--Nazjatar: Clean Murloc Sock
+	[14] = { itemId=169783, zoneId=6, qty=-1, label="" },--Nazjatar: Cultist Pinky Finger
+	[15] = { itemId=167905, zoneId=6, qty=-1, label="" },--Nazjatar: Curious Murloc Horn
+	[16] = { itemId=167916, zoneId=6, qty=-1, label="" },--Nazjatar: Dirty Murloc Sock
+	[17] = { itemId=167903, zoneId=6, qty=-1, label="" },--Nazjatar: Disintegrating Sand Sculpture
+	[18] = { itemId=170167, zoneId=12, qty=-1, label="" },--Nazjatar: Eel Fillet
+	[19] = { itemId=170472, zoneId=6, qty=-1, label="" },--Nazjatar: Encrusted Coin
+	[20] = { itemId=167907, zoneId=6, qty=-1, label="" },--Nazjatar: Extra-Slimy Snail
+	[21] = { itemId=168094, zoneId=6, qty=-1, label="" },--Nazjatar: Faintly Humming Sea Stones
+	[22] = { itemId=170176, zoneId=12, qty=-1, label="" },--Nazjatar: Fathom Ray Wing
+	[23] = { itemId=167906, zoneId=6, qty=-1, label="" },--Nazjatar: Flatulent Fish
+	[24] = { itemId=166888, zoneId=6, qty=-1, label="" },--Nazjatar: Germinating Seed
+	[25] = { itemId=167786, zoneId=6, qty=-1, label="" },--Nazjatar: Germinating Seed
+	[26] = { itemId=167909, zoneId=6, qty=-1, label="" },--Nazjatar: Ghost Food
+	[27] = { itemId=170171, zoneId=12, qty=-1, label="" },--Nazjatar: Giant Crab Leg
+	[28] = { itemId=167913, zoneId=6, qty=-1, label="" },--Nazjatar: Healthy Murloc Lunch
+	[29] = { itemId=168666, zoneId=6, qty=-1, label="" },--Nazjatar: Hefty Glimmershell
+	[30] = { itemId=170100, zoneId=6, qty=-1, label="" },--Nazjatar: Hungry Herald's Tentacle Taco
+	[31] = { itemId=167914, zoneId=6, qty=-1, label="" },--Nazjatar: Jar of Fish Faces
+	[32] = { itemId=167911, zoneId=6, qty=-1, label="" },--Nazjatar: Just Regular Butter
+	[33] = { itemId=170512, zoneId=6, qty=-1, label="" },--Nazjatar: Lesser Benthic Arcanocrystal
+	[34] = { itemId=170547, zoneId=6, qty=-1, label="" },--Nazjatar: Mardivas's Arcane Cache Key
+	[35] = { itemId=168161, zoneId=6, qty=-1, label="" },--Nazjatar: Molted Shell
+	[36] = { itemId=168232, zoneId=6, qty=-1, label="" },--Nazjatar: Murloco's 'Fish' Tacos
+	[37] = { itemId=170085, zoneId=12, qty=-1, label="" },--Nazjatar: Naga Deployment Orders
+	[38] = { itemId=170153, zoneId=6, qty=-1, label="" },--Nazjatar: Ominous Looking Tome
+	[39] = { itemId=169781, zoneId=6, qty=-1, label="" },--Nazjatar: Overwhelmingly-Alluring Idol
+	[40] = { itemId=167902, zoneId=6, qty=-1, label="" },--Nazjatar: Particularly Dense Rock
+	[41] = { itemId=168097, zoneId=6, qty=-1, label="" },--Nazjatar: Pilfered Armor Crate
+	[42] = { itemId=167893, zoneId=6, qty=-1, label="" },--Nazjatar: Prismatic Crystal
+	[43] = { itemId=169780, zoneId=6, qty=-1, label="" },--Nazjatar: Pulsating Blood Stone
+	[44] = { itemId=170180, zoneId=6, qty=-1, label="" },--Nazjatar: Razorshell
+	[45] = { itemId=170183, zoneId=12, qty=-1, label="" },--Nazjatar: Reefwalker Bark
+	[46] = { itemId=168261, zoneId=6, qty=-1, label="" },--Nazjatar: Reinforced Cache Key
+	[47] = { itemId=167077, zoneId=6, qty=-1, label="" },--Nazjatar: Scrying Stone
+	[48] = { itemId=167908, zoneId=6, qty=-1, label="" },--Nazjatar: Sea Giant Foot Dust
+	[49] = { itemId=170191, zoneId=6, qty=-1, label="" },--Nazjatar: Skeletal Hand
+	[50] = { itemId=167896, zoneId=6, qty=-1, label="" },--Nazjatar: Slimy Naga Eyeball
+	[51] = { itemId=167904, zoneId=6, qty=-1, label="" },--Nazjatar: Smelly Pile of Gloop
+	[52] = { itemId=169332, zoneId=6, qty=-1, label="" },--Nazjatar: Strange Mineralized Water
+	[53] = { itemId=169334, zoneId=6, qty=-1, label="" },--Nazjatar: Strange Oceanic Sediment
+	[54] = { itemId=169333, zoneId=6, qty=-1, label="" },--Nazjatar: Strange Volcanic Rock
+	[55] = { itemId=167915, zoneId=6, qty=-1, label="" },--Nazjatar: Sweet Sea Vegetable
+	[56] = { itemId=170181, zoneId=6, qty=-1, label="" },--Nazjatar: Tidal Guard
+	[57] = { itemId=167912, zoneId=6, qty=-1, label="" },--Nazjatar: Unidentified Mass
+	[58] = { itemId=170158, zoneId=6, qty=-1, label="" },--Nazjatar: Unspeakable Pearl Idol
+	[59] = { itemId=168053, zoneId=6, qty=-1, label="" },--Nazjatar: Unusually Wise Hermit Crab
+	[60] = { itemId=170161, zoneId=12, qty=-1, label="" },--Nazjatar: Unusually Wise Hermit Crab
+	[61] = { itemId=169942, zoneId=12, qty=-1, label="" },--Nazjatar: Vibrant Sea Blossom
+	[62] = { itemId=170162, zoneId=6, qty=-1, label="" },--Nazjatar: Waterlogged Toolbox
+	[63] = { itemId=170502, zoneId=6, qty=-1, label="" }, } --Nazjatar: Waterlogged Toolbox
+data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
+	[2] = { itemId=174761, zoneId=2, qty=-1, label="" },--Patch8_3: Aqir Relic
+	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine now!" },--Patch8_3: Aqir Relic Fragment
+	[4] = { itemId=174352, zoneId=8, qty=-1, label="" },--Patch8_3: Baked Voidfin
+	[5] = { itemId=172494, zoneId=3, qty=-1, label="" },--Patch8_3: Baruk Idol
+	[6] = { itemId=171347, zoneId=8, qty=-1, label="" },--Patch8_3: Corrupted Bone Fragment
+	[7] = { itemId=174768, zoneId=3, qty=-1, label="" },--Patch8_3: Cursed Relic
+	[8] = { itemId=174837, zoneId=2, qty=-1, label="" },--Patch8_3: Decaying Fusion Core
+	[9] = { itemId=167788, zoneId=8, qty=-1, label="" },--Patch8_3: Detoxifying Vial
+	[10] = { itemId=174350, zoneId=8, qty=-1, label="" },--Patch8_3: Dubious Delight
+	[11] = { itemId=172072, zoneId=8, qty=-1, label="" },--Patch8_3: Experimental Vial
+	[12] = { itemId=172947, zoneId=8, qty=-1, label="" },--Patch8_3: Faceless Mask of Dark Imagination
+	[13] = { itemId=174325, zoneId=2, qty=-1, label="" },--Patch8_3: Fire Bomb
+	[14] = { itemId=174858, zoneId=2, qty=-1, label="" },--Patch8_3: Gersahl Greens
+	[15] = { itemId=174349, zoneId=8, qty=-1, label="" },--Patch8_3: Ghastly Goulash
+	[16] = { itemId=174348, zoneId=8, qty=-1, label="" },--Patch8_3: Grilled Gnasher
+	[17] = { itemId=171335, zoneId=9, qty=-1, label="" },--Patch8_3: Horrific Core
+	[18] = { itemId=171352, zoneId=9, qty=-1, label="" },--Patch8_3: Horrific Core
+	[19] = { itemId=168160, zoneId=2, qty=-1, label="" },--Patch8_3: Jeweled Scarab Figurine
+	[20] = { itemId=174351, zoneId=8, qty=-1, label="" },--Patch8_3: K'Bab
+	[21] = { itemId=174766, zoneId=1, qty=-1, label="" },--Patch8_3: Mantid Relic
+	[22] = { itemId=174760, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Mantid Relic Fragment
+	[23] = { itemId=174767, zoneId=1, qty=-1, label="" },--Patch8_3: Mogu Relic
+	[24] = { itemId=174759, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Mogu Relic Fragment
+	[25] = { itemId=174045, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Dark Portents
+	[26] = { itemId=174046, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Visions
+	[27] = { itemId=167027, zoneId=8, qty=-1, label="" },--Patch8_3: Portable Clarity Beam
+	[28] = { itemId=169294, zoneId=8, qty=-1, label="" },--Patch8_3: Resilient Soul
+	[29] = { itemId=171212, zoneId=8, qty=-1, label="" },--Patch8_3: Sanity Restoration Orb
+	[30] = { itemId=175150, zoneId=2, qty=-1, label="" },--Patch8_3: Self-Shaping Amber
+	[31] = { itemId=174867, zoneId=2, qty=-1, label="" },--Patch8_3: Shard of Corruption
+	[32] = { itemId=173888, zoneId=8, qty=-1, label="" },--Patch8_3: Shard of Self Sacrifice
+	[33] = { itemId=86547, zoneId=1, qty=-1, label="" },--Patch8_3: Skyshard
+	[34] = { itemId=168271, zoneId=2, qty=-1, label="" },--Patch8_3: Stolen Ramkahen Banner
+	[35] = { itemId=171208, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Amulet
+	[36] = { itemId=168267, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Figurine
+	[37] = { itemId=174765, zoneId=2, qty=-1, label="" },--Patch8_3: Tol'vir Relic
+	[38] = { itemId=174764, zoneId=2, qty=6, label="Combine now!" },--Patch8_3: Tol'vir Relic Fragment
+	[39] = { itemId=173363, zoneId=8, qty=-1, label="" },--Patch8_3: Vessel of Horrific Visions
+	[40] = { itemId=173293, zoneId=8, qty=-1, label="" },--Patch8_3: Vial of Self Preservation
+	[41] = { itemId=171334, zoneId=8, qty=-1, label="" },--Patch8_3: Void-Touched Cloth
+	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Voidwarped Relic Fragment
+	[43] = { itemId=174927, zoneId=1, qty=-1, label="" }, } --Patch8_3: Zan-Tien Lasso
+data.arrReputation = {	[1] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
+	[2] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia
+	[3] = { itemId=150926, zoneId=13, qty=-1, label="" },--Reputation: Greater Dreamweaver Insignia
+	[4] = { itemId=152464, zoneId=13, qty=-1, label="" },--Reputation: Greater Legionfall Insignia
+	[5] = { itemId=150925, zoneId=13, qty=-1, label="" },--Reputation: Greater Valarjar Insignia
+	[6] = { itemId=146950, zoneId=13, qty=-1, label="" },--Reputation: Legionfall Insignia
+	[7] = { itemId=117492, zoneId=13, qty=-1, label="" },--Reputation: Relic of Rukhmar
+	[8] = { itemId=94225, zoneId=13, qty=-1, label="" },--Reputation: Stolen Celestial Insignia
+	[9] = { itemId=94227, zoneId=13, qty=-1, label="" },--Reputation: Stolen Golden Lotus Insignia
+	[10] = { itemId=94226, zoneId=13, qty=-1, label="" },--Reputation: Stolen Klaxxi Insignia
+	[11] = { itemId=94223, zoneId=13, qty=-1, label="" }, } --Reputation: Stolen Shado-Pan Insignia
+data.arrTimeless = {	[1] = { itemId=103642, zoneId=4, qty=-1, label="" },--Timeless: Book of the Ages
+	[2] = { itemId=103643, zoneId=4, qty=-1, label="" },--Timeless: Dew of Eternal Morning
+	[3] = { itemId=104346, zoneId=4, qty=-1, label="" },--Timeless: Golden Glider
+	[4] = { itemId=103641, zoneId=4, qty=-1, label="" },--Timeless: Singing Crystal
+	[5] = { itemId=104287, zoneId=4, qty=-1, label="" }, } --Timeless: Windfeather Plume
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
