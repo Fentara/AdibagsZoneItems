@@ -9,13 +9,12 @@ setFilter.uiName = L['Zone Specific Items']
 setFilter.uiDesc = L['Group zone specific items together.']
 local addonName, data  = ...
 local Ggbug = true
-
-if Ggbug == true then print('AdiBags - Zone Items loaded.') end
-
+if Ggbug == true then print(addon , 'loaded.') end
 -- debugging values
 local debugBagSlot = {1,21}
-local lookForId = 174287
+local lookForId = 114622
 local testChannel = -1
+local bagItemID
 -- General Constants
 local errNOT_FOUND = -101
 local kCategory = 'Zone Item'
@@ -27,10 +26,15 @@ local kSfx = '|r'
 local kCurrBoAMin = 385
 -- Set special top-of-bags category for current zone's items
 local CURRENT_ZONE_ITEM = 'Current Zone Item'
-addon:SetCategoryOrder(CURRENT_ZONE_ITEM,80)
+local PRIORITY_ITEM = 'Attention!'
+addon:SetCategoryOrder(CURRENT_ZONE_ITEM, 80)
+addon:SetCategoryOrder(PRIORITY_ITEM, 81)
 -- Global Variables
-local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName, loadedZoneGroups
+local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName
 
+function Ggprint(...) 
+  if lookForId == bagItemID and Ggbug == true then print(...) end
+end
 
 -- Expansion #: 1-Vanilla, 2-TBC, 3-LK, 4-MoP, 5-Cata, 6-WoD, 7-Legion, 8-BFA, 9-Shadowlands
 ------------------------------------------------------------------------------
@@ -49,8 +53,6 @@ function setFilter:OnInitialize(b)
       groupCorrupted = true,
 		  groupRepItems  = true,
       zonePriority = true,
-      groupInstanced = false,
-      groupPVP = false,
   },
     char = {  },
   })
@@ -169,22 +171,7 @@ function setFilter:GetOptions()
           type = 'toggle',
           order = 32,
         },
---[[         groupPVP = {
-          name = L['PVP - NYI'],
-          desc = L['Not yet implemented.'],
-          --name = L['PVP Priority Items'],
-          --desc = L['Moves PVP-related items to top of bags in Arenas, Battlegrounds as relevant for easier access.'],
-          type = 'toggle',
-          order = 33,
-        },
-        groupInstanced = {
-          name = L['Party - NYI'],
-          desc = L['Not yet implemented.'],
-          --name = L['Party Supplies'],
-          --desc = L['Prioritizes items for parties. Or raids. Moves consumables such as food, potions, and other enhancement/restoration items to top of bags in instanced content for easier access.'],
-          type = 'toggle',
-          order = 34,
-        }, ]]
+
       }
     },
   }, addon:GetOptionHandler(self, false, function() return self:Update() end)
@@ -215,38 +202,39 @@ local function loadMapIDs()
     parentMapID = C_Map.GetMapInfo(currMapID).parentMapID
     parentMapName = C_Map.GetMapInfo(parentMapID).name
   end
-  -- check if current zone is matched in the arrZoneCodes table set lable to priority color and move top of bags
-  loadedZoneGroups = {}
-  for i = 1, #data.arrZoneCodes do loadedZoneGroups[i] = {} end
-  for id, info in pairs(data.arrZoneCodes) do
-    --[1]= { zGroup="Vale", zGroupIds={1530,1570,380,390} },
-    local zGroupIds = info.zGroupIds
-    loadedZoneGroups[id][1] = id
-    loadedZoneGroups[id][2] = info.zGroup -- The Group's name
-    loadedZoneGroups[id][3] = info.zGroupIds
-  end -- end pairs loop 
 end
 
 ------------------------------------------------------------------------------
 function setFilter:checkItem(itemId, dataArray)
-  -- returns zoneID if itemId finds a match in the array otherwise null
+  -- returns zoneId if itemId finds a match in the array otherwise null
   --itemId, zoneId, qty-1, label
   for id, info in pairs(dataArray) do
-    --if tonumber(itemId) == lookForId then  ('check item', itemId, info.itemId)
     if tonumber(itemId) == tonumber(info.itemId) then
-      for x = 1, #loadedZoneGroups[info.zoneId][3] do
-        if tonumber(loadedZoneGroups[info.zoneId][3][x]) == tonumber(currZoneId) then
-          if self.db.profile.zonePriority then
-            return true, kPfx2 .. loadedZoneGroups[info.zoneId][2] .. kSfx, CURRENT_ZONE_ITEM
-          else
-            return true, kPfx2 .. loadedZoneGroups[info.zoneId][2] .. kSfx, kCategory
-          end
-        end
-      end
-      return true, kPfx .. loadedZoneGroups[info.zoneId][2] .. kSfx, kCategory
-    end 
+      --if qty is a number and matched by item quantity then mark as labeled  
+      if GetItemCount(itemId, true) == tonumber(info.qty) then return true, kPfx .. info.label .. kSfx, PRIORITY_ITEM end
+
+      local isCurrent, zoneGroup = setFilter:isCurrentZone(info.zoneId) 
+      if isCurrent and self.db.profile.zonePriority then 
+        return true, kPfx2 .. zoneGroup .. kSfx, CURRENT_ZONE_ITEM
+      elseif isCurrentZone then 
+        return true, kPfx2 .. zoneGroup .. kSfx, kCategory
+      else
+        return true, kPfx .. zoneGroup .. kSfx, kCategory
+      end 
+    end -- end itemId match
   end
   return false, false, false
+end
+
+function setFilter:isCurrentZone(zoneId)
+  for id, info in pairs(data.arrZoneCodes) do 
+    if tonumber(id) == tonumber(zoneId) then 
+      for x = 1, #info.zGroupIds do
+        if tonumber(info.zGroupIds[x]) == currZoneId then return true, info.zGroup end
+      end -- end for x
+      return false, info.zGroup 
+    end
+  end 
 end
 
 ------------------------------------------------------------------------------
@@ -254,7 +242,7 @@ function setFilter:Filter(slotData)
   --Exit zoneItem addon if not enabled
   if not self.db.profile.enable then return end
   if currZoneId ~= C_Map.GetBestMapForUnit("player") or currZoneId == nil then  loadMapIDs() end
-	local bagItemID = slotData.itemId
+	bagItemID = slotData.itemId
   --funky but GetItemInfo doesn't return corruption info so call specifically for itemLink
   itemLink = GetContainerItemLink(slotData.bag, slotData.slot)
   local itemName,_, itemRarity, itemLevel,itemMinLevel, itemType, itemSubType,_,_, _, _, itemClassID, itemSubClassID, bindType, expacID = GetItemInfo(itemLink)
@@ -263,12 +251,22 @@ function setFilter:Filter(slotData)
   -- Start checking groupings
   -- Heart of Azeroth Essences
   if self.db.profile.groupEssences and (itemClassID == 0 and itemSubClassID == 8 and itemRarity == 6 and expacID ==7) then
-    return kPfx .. 'Heart Essence'.. kSfx, 'Essence'
+  -- fix this to put first if in HEART
+    local isZone, zoneGroupName =setFilter:isCurrentZone(10)
+    if isZone and self.db.profile.zonePriority then 
+      return kPfx2 .. zoneGroupName.. kSfx, CURRENT_ZONE_ITEM
+    else
+      return kPfx .. zoneGroupName.. kSfx, kCategory
+    end
   end
   --Corrupted gear 
   if self.db.profile.groupCorrupted and IsCorruptedItem(itemLink) == true then
-    currSubCategory = CORRUPTED_ITEM_LOOT_LABEL
-    return kPfx.. currSubCategory .. kSfx, kCategory
+    local isZone, zoneGroupName =setFilter:isCurrentZone(10)
+    if isZone and self.db.profile.zonePriority then 
+      return kPfx2 .. CORRUPTED_ITEM_LOOT_LABEL.. kSfx, CURRENT_ZONE_ITEM
+    else
+      return kPfx .. CORRUPTED_ITEM_LOOT_LABEL.. kSfx, kCategory
+    end
   end
     -- Heart Essences
   if self.db.profile.groupEssences then

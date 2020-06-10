@@ -73,84 +73,86 @@ data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missi
 	[17] = { itemId=114745, zoneId=11, qty=-1, label="" },--Missions: Braced Armor Enhancement
 	[18] = { itemId=147348, zoneId=11, qty=-1, label="" },--Missions: Bulky Armor Set
 	[19] = { itemId=113823, zoneId=11, qty=-1, label="" },--Missions: Crusted Iron Horde Pauldrons
-	[20] = { itemId=118340, zoneId=11, qty=-1, label="" },--Missions: Cyclical Power Converter
-	[21] = { itemId=128308, zoneId=11, qty=-1, label="" },--Missions: Draenic Armor Set
-	[22] = { itemId=128307, zoneId=11, qty=-1, label="" },--Missions: Draenic Weaponry
-	[23] = { itemId=152444, zoneId=9, qty=-1, label="" },--Missions: Exalted Xenedar Hammer
-	[24] = { itemId=127891, zoneId=11, qty=-1, label="" },--Missions: Extra Quarters
-	[25] = { itemId=127884, zoneId=11, qty=-1, label="" },--Missions: Felsmoke Launcher
-	[26] = { itemId=122272, zoneId=11, qty=-1, label="" },--Missions: Follower Ability Retraining Manual
-	[27] = { itemId=118354, zoneId=11, qty=-1, label="" },--Missions: Follower Retraining Certificate
-	[28] = { itemId=122273, zoneId=11, qty=-1, label="" },--Missions: Follower Trait Retraining Guide
-	[29] = { itemId=128314, zoneId=11, qty=-1, label="" },--Missions: Frozen Arms of a Hero
-	[30] = { itemId=128257, zoneId=11, qty=-1, label="" },--Missions: Ghostly Spyglass
-	[31] = { itemId=139419, zoneId=11, qty=-1, label="" },--Missions: Golden Banana
-	[32] = { itemId=114746, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Armor Set
-	[33] = { itemId=114622, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Weaponry
-	[34] = { itemId=118099, zoneId=11, qty=-1, label="" },--Missions: Gorian Artifact Fragment
-	[35] = { itemId=122582, zoneId=11, qty=-1, label="" },--Missions: Guide to Arakkoa Relations
-	[36] = { itemId=127881, zoneId=11, qty=-1, label="" },--Missions: Gyroscopic Internal Stabilizer
-	[37] = { itemId=139418, zoneId=9, qty=-1, label="" },--Missions: Healing Stream Totem
-	[38] = { itemId=139376, zoneId=9, qty=-1, label="" },--Missions: Healing Well
-	[39] = { itemId=118475, zoneId=11, qty=-1, label="" },--Missions: Hearthstone Strategy Guide
-	[40] = { itemId=114822, zoneId=11, qty=-1, label="" },--Missions: Heavily Reinforced Armor Enhancement
-	[41] = { itemId=127662, zoneId=11, qty=-1, label="" },--Missions: High Intensity Fog Lights
-	[42] = { itemId=140749, zoneId=9, qty=-1, label="" },--Missions: Horn of Winter
-	[43] = { itemId=128313, zoneId=11, qty=-1, label="" },--Missions: Huge Ogre Cache
-	[44] = { itemId=127880, zoneId=11, qty=-1, label="" },--Missions: Ice Cutter
-	[45] = { itemId=138412, zoneId=9, qty=-1, label="" },--Missions: Iresoul's Healthstone
-	[46] = { itemId=113681, zoneId=11, qty=-1, label="" },--Missions: Iron Horde Scraps
-	[47] = { itemId=139867, zoneId=9, qty=-1, label="" },--Missions: Justice Hammer
-	[48] = { itemId=152095, zoneId=9, qty=-1, label="" },--Missions: Krokul Ridgestalker
-	[49] = { itemId=140590, zoneId=11, qty=-1, label="" },--Missions: Large Crate of Salvage
-	[50] = { itemId=140760, zoneId=11, qty=-1, label="" },--Missions: Libram of Truth
-	[51] = { itemId=152447, zoneId=9, qty=-1, label="" },--Missions: Lightburst Charge
-	[52] = { itemId=152097, zoneId=9, qty=-1, label="" },--Missions: Lightforged Bulwark
-	[53] = { itemId=139801, zoneId=9, qty=-1, label="" },--Missions: Lucky Doodad
-	[54] = { itemId=152445, zoneId=9, qty=-1, label="" },--Missions: Memento of the Lightforged
-	[55] = { itemId=128659, zoneId=11, qty=-1, label="" },--Missions: Merry Supplies
-	[56] = { itemId=138883, zoneId=9, qty=-1, label="" },--Missions: Meryl's Conjured Refreshment
-	[57] = { itemId=118897, zoneId=11, qty=-1, label="" },--Missions: Miner's Coffee
-	[58] = { itemId=122514, zoneId=11, qty=-1, label="" },--Missions: Mission Completion Orders
-	[59] = { itemId=122580, zoneId=11, qty=-1, label="" },--Missions: Ogre Buddy Handbook
-	[60] = { itemId=117491, zoneId=11, qty=-1, label="" },--Missions: Ogre Waystone
-	[61] = { itemId=140767, zoneId=9, qty=-1, label="" },--Missions: Pile of Bits and Bones
-	[62] = { itemId=114131, zoneId=11, qty=-1, label="" },--Missions: Power Overrun Weapon Enhancement
-	[63] = { itemId=118903, zoneId=11, qty=-1, label="" },--Missions: Preserved Mining Pick
-	[64] = { itemId=127892, zoneId=11, qty=-1, label="" },--Missions: Q-43 Noisemaker Mines
-	[65] = { itemId=113822, zoneId=11, qty=-1, label="" },--Missions: Ravaged Iron Horde Belt
-	[66] = { itemId=140656, zoneId=9, qty=-1, label="" },--Missions: Rod of the Ascended
-	[67] = { itemId=152932, zoneId=9, qty=-1, label="" },--Missions: Runewarded Lightblade
-	[68] = { itemId=122576, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Alchemy Lab
-	[69] = { itemId=122590, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Enchanter's Study
-	[70] = { itemId=122591, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Engineering Works
-	[71] = { itemId=122592, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Gem Boutique
-	[72] = { itemId=122593, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Scribe's Quarters
-	[73] = { itemId=128373, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Shipyard
-	[74] = { itemId=122594, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Tailoring Emporium
-	[75] = { itemId=122595, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Forge
-	[76] = { itemId=122596, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Tannery
-	[77] = { itemId=139593, zoneId=11, qty=-1, label="" },--Missions: Sack of Salvaged Goods
-	[78] = { itemId=139594, zoneId=11, qty=-1, label="" },--Missions: Salvage Crate
-	[79] = { itemId=152443, zoneId=9, qty=-1, label="" },--Missions: Sanctified Armaments of the Light
-	[80] = { itemId=118723, zoneId=11, qty=-1, label="" },--Missions: Secrets of Draenor Jewelcrafting
-	[81] = { itemId=147553, zoneId=9, qty=-1, label="" },--Missions: Shard of Twisting Nether
-	[82] = { itemId=139177, zoneId=9, qty=-1, label="" },--Missions: Shattered Soul
-	[83] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
-	[84] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
-	[85] = { itemId=114129, zoneId=11, qty=-1, label="" },--Missions: Striking Weapon Enhancement
-	[86] = { itemId=143850, zoneId=9, qty=-1, label="" },--Missions: Summon Grimtotem Warrior
-	[87] = { itemId=138410, zoneId=9, qty=-1, label="" },--Missions: Summoning Portal
-	[88] = { itemId=141332, zoneId=9, qty=-1, label="" },--Missions: The Annals of Light and Shadow
-	[89] = { itemId=127883, zoneId=11, qty=-1, label="" },--Missions: True Iron Rudder
-	[90] = { itemId=127894, zoneId=11, qty=-1, label="" },--Missions: Tuskarr Fishing Net
-	[91] = { itemId=127886, zoneId=11, qty=-1, label="" },--Missions: Unsinkable
-	[92] = { itemId=152096, zoneId=9, qty=-1, label="" },--Missions: Void-Purged Krokul
-	[93] = { itemId=114616, zoneId=11, qty=-1, label="" },--Missions: War Ravaged Weaponry
-	[94] = { itemId=120302, zoneId=11, qty=-1, label="" },--Missions: Weapon Enhancement Token
-	[95] = { itemId=139420, zoneId=9, qty=-1, label="" },--Missions: Wild Mushroom
-	[96] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
-	[97] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
+	[20] = { itemId=122583, zoneId=11, qty=-1, label="" },--Missions: Grease Monkey Guide
+	[21] = { itemId=118340, zoneId=11, qty=-1, label="" },--Missions: Cyclical Power Converter
+	[22] = { itemId=128308, zoneId=11, qty=-1, label="" },--Missions: Draenic Armor Set
+	[23] = { itemId=128307, zoneId=11, qty=-1, label="" },--Missions: Draenic Weaponry
+	[24] = { itemId=152444, zoneId=9, qty=-1, label="" },--Missions: Exalted Xenedar Hammer
+	[25] = { itemId=127891, zoneId=11, qty=-1, label="" },--Missions: Extra Quarters
+	[26] = { itemId=127884, zoneId=11, qty=-1, label="" },--Missions: Felsmoke Launcher
+	[27] = { itemId=122272, zoneId=11, qty=-1, label="" },--Missions: Follower Ability Retraining Manual
+	[28] = { itemId=118354, zoneId=11, qty=-1, label="" },--Missions: Follower Retraining Certificate
+	[29] = { itemId=122273, zoneId=11, qty=-1, label="" },--Missions: Follower Trait Retraining Guide
+	[30] = { itemId=114808, zoneId=11, qty=-1, label="" },--Missions: Fortified Armor Enhancement
+	[31] = { itemId=128314, zoneId=11, qty=-1, label="" },--Missions: Frozen Arms of a Hero
+	[32] = { itemId=128257, zoneId=11, qty=-1, label="" },--Missions: Ghostly Spyglass
+	[33] = { itemId=139419, zoneId=11, qty=-1, label="" },--Missions: Golden Banana
+	[34] = { itemId=114746, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Armor Set
+	[35] = { itemId=114622, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Weaponry
+	[36] = { itemId=118099, zoneId=11, qty=-1, label="" },--Missions: Gorian Artifact Fragment
+	[37] = { itemId=122582, zoneId=11, qty=-1, label="" },--Missions: Guide to Arakkoa Relations
+	[38] = { itemId=127881, zoneId=11, qty=-1, label="" },--Missions: Gyroscopic Internal Stabilizer
+	[39] = { itemId=139418, zoneId=9, qty=-1, label="" },--Missions: Healing Stream Totem
+	[40] = { itemId=139376, zoneId=9, qty=-1, label="" },--Missions: Healing Well
+	[41] = { itemId=118475, zoneId=11, qty=-1, label="" },--Missions: Hearthstone Strategy Guide
+	[42] = { itemId=114822, zoneId=11, qty=-1, label="" },--Missions: Heavily Reinforced Armor Enhancement
+	[43] = { itemId=127662, zoneId=11, qty=-1, label="" },--Missions: High Intensity Fog Lights
+	[44] = { itemId=140749, zoneId=9, qty=-1, label="" },--Missions: Horn of Winter
+	[45] = { itemId=128313, zoneId=11, qty=-1, label="" },--Missions: Huge Ogre Cache
+	[46] = { itemId=127880, zoneId=11, qty=-1, label="" },--Missions: Ice Cutter
+	[47] = { itemId=138412, zoneId=9, qty=-1, label="" },--Missions: Iresoul's Healthstone
+	[48] = { itemId=113681, zoneId=11, qty=-1, label="" },--Missions: Iron Horde Scraps
+	[49] = { itemId=139867, zoneId=9, qty=-1, label="" },--Missions: Justice Hammer
+	[50] = { itemId=152095, zoneId=9, qty=-1, label="" },--Missions: Krokul Ridgestalker
+	[51] = { itemId=140590, zoneId=11, qty=-1, label="" },--Missions: Large Crate of Salvage
+	[52] = { itemId=140760, zoneId=11, qty=-1, label="" },--Missions: Libram of Truth
+	[53] = { itemId=152447, zoneId=9, qty=-1, label="" },--Missions: Lightburst Charge
+	[54] = { itemId=152097, zoneId=9, qty=-1, label="" },--Missions: Lightforged Bulwark
+	[55] = { itemId=139801, zoneId=9, qty=-1, label="" },--Missions: Lucky Doodad
+	[56] = { itemId=152445, zoneId=9, qty=-1, label="" },--Missions: Memento of the Lightforged
+	[57] = { itemId=128659, zoneId=11, qty=-1, label="" },--Missions: Merry Supplies
+	[58] = { itemId=138883, zoneId=9, qty=-1, label="" },--Missions: Meryl's Conjured Refreshment
+	[59] = { itemId=118897, zoneId=11, qty=-1, label="" },--Missions: Miner's Coffee
+	[60] = { itemId=122514, zoneId=11, qty=-1, label="" },--Missions: Mission Completion Orders
+	[61] = { itemId=122580, zoneId=11, qty=-1, label="" },--Missions: Ogre Buddy Handbook
+	[62] = { itemId=117491, zoneId=11, qty=-1, label="" },--Missions: Ogre Waystone
+	[63] = { itemId=140767, zoneId=9, qty=-1, label="" },--Missions: Pile of Bits and Bones
+	[64] = { itemId=114131, zoneId=11, qty=-1, label="" },--Missions: Power Overrun Weapon Enhancement
+	[65] = { itemId=118903, zoneId=11, qty=-1, label="" },--Missions: Preserved Mining Pick
+	[66] = { itemId=127892, zoneId=11, qty=-1, label="" },--Missions: Q-43 Noisemaker Mines
+	[67] = { itemId=113822, zoneId=11, qty=-1, label="" },--Missions: Ravaged Iron Horde Belt
+	[68] = { itemId=140656, zoneId=9, qty=-1, label="" },--Missions: Rod of the Ascended
+	[69] = { itemId=152932, zoneId=9, qty=-1, label="" },--Missions: Runewarded Lightblade
+	[70] = { itemId=122576, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Alchemy Lab
+	[71] = { itemId=122590, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Enchanter's Study
+	[72] = { itemId=122591, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Engineering Works
+	[73] = { itemId=122592, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Gem Boutique
+	[74] = { itemId=122593, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Scribe's Quarters
+	[75] = { itemId=128373, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Shipyard
+	[76] = { itemId=122594, zoneId=11, qty=-1, label="" },--Missions: Rush Order: Tailoring Emporium
+	[77] = { itemId=122595, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Forge
+	[78] = { itemId=122596, zoneId=11, qty=-1, label="" },--Missions: Rush Order: The Tannery
+	[79] = { itemId=139593, zoneId=11, qty=-1, label="" },--Missions: Sack of Salvaged Goods
+	[80] = { itemId=139594, zoneId=11, qty=-1, label="" },--Missions: Salvage Crate
+	[81] = { itemId=152443, zoneId=9, qty=-1, label="" },--Missions: Sanctified Armaments of the Light
+	[82] = { itemId=118723, zoneId=11, qty=-1, label="" },--Missions: Secrets of Draenor Jewelcrafting
+	[83] = { itemId=147553, zoneId=9, qty=-1, label="" },--Missions: Shard of Twisting Nether
+	[84] = { itemId=139177, zoneId=9, qty=-1, label="" },--Missions: Shattered Soul
+	[85] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
+	[86] = { itemId=143605, zoneId=9, qty=-1, label="" },--Missions: Strange Ball of Energy
+	[87] = { itemId=114129, zoneId=11, qty=-1, label="" },--Missions: Striking Weapon Enhancement
+	[88] = { itemId=143850, zoneId=9, qty=-1, label="" },--Missions: Summon Grimtotem Warrior
+	[89] = { itemId=138410, zoneId=9, qty=-1, label="" },--Missions: Summoning Portal
+	[90] = { itemId=141332, zoneId=9, qty=-1, label="" },--Missions: The Annals of Light and Shadow
+	[91] = { itemId=127883, zoneId=11, qty=-1, label="" },--Missions: True Iron Rudder
+	[92] = { itemId=127894, zoneId=11, qty=-1, label="" },--Missions: Tuskarr Fishing Net
+	[93] = { itemId=127886, zoneId=11, qty=-1, label="" },--Missions: Unsinkable
+	[94] = { itemId=152096, zoneId=9, qty=-1, label="" },--Missions: Void-Purged Krokul
+	[95] = { itemId=114616, zoneId=11, qty=-1, label="" },--Missions: War Ravaged Weaponry
+	[96] = { itemId=120302, zoneId=11, qty=-1, label="" },--Missions: Weapon Enhancement Token
+	[97] = { itemId=139420, zoneId=9, qty=-1, label="" },--Missions: Wild Mushroom
+	[98] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
+	[99] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
 data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazjatar: Abyss Pearl
 	[2] = { itemId=170079, zoneId=12, qty=-1, label="" },--Nazjatar: Abyssal Conch
 	[3] = { itemId=170184, zoneId=12, qty=-1, label="" },--Nazjatar: Ancient Reefwalker Bark
@@ -216,7 +218,7 @@ data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazja
 	[63] = { itemId=170502, zoneId=6, qty=-1, label="" }, } --Nazjatar: Waterlogged Toolbox
 data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
 	[2] = { itemId=174761, zoneId=2, qty=-1, label="" },--Patch8_3: Aqir Relic
-	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine now!" },--Patch8_3: Aqir Relic Fragment
+	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Aqir Relic Fragment
 	[4] = { itemId=174352, zoneId=8, qty=-1, label="" },--Patch8_3: Baked Voidfin
 	[5] = { itemId=172494, zoneId=3, qty=-1, label="" },--Patch8_3: Baruk Idol
 	[6] = { itemId=171347, zoneId=8, qty=-1, label="" },--Patch8_3: Corrupted Bone Fragment
@@ -235,9 +237,9 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[19] = { itemId=168160, zoneId=2, qty=-1, label="" },--Patch8_3: Jeweled Scarab Figurine
 	[20] = { itemId=174351, zoneId=8, qty=-1, label="" },--Patch8_3: K'Bab
 	[21] = { itemId=174766, zoneId=1, qty=-1, label="" },--Patch8_3: Mantid Relic
-	[22] = { itemId=174760, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Mantid Relic Fragment
+	[22] = { itemId=174760, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mantid Relic Fragment
 	[23] = { itemId=174767, zoneId=1, qty=-1, label="" },--Patch8_3: Mogu Relic
-	[24] = { itemId=174759, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Mogu Relic Fragment
+	[24] = { itemId=174759, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mogu Relic Fragment
 	[25] = { itemId=174045, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Dark Portents
 	[26] = { itemId=174046, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Visions
 	[27] = { itemId=167027, zoneId=8, qty=-1, label="" },--Patch8_3: Portable Clarity Beam
@@ -251,11 +253,11 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[35] = { itemId=171208, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Amulet
 	[36] = { itemId=168267, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Figurine
 	[37] = { itemId=174765, zoneId=2, qty=-1, label="" },--Patch8_3: Tol'vir Relic
-	[38] = { itemId=174764, zoneId=2, qty=6, label="Combine now!" },--Patch8_3: Tol'vir Relic Fragment
+	[38] = { itemId=174764, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Tol'vir Relic Fragment
 	[39] = { itemId=173363, zoneId=8, qty=-1, label="" },--Patch8_3: Vessel of Horrific Visions
 	[40] = { itemId=173293, zoneId=8, qty=-1, label="" },--Patch8_3: Vial of Self Preservation
 	[41] = { itemId=171334, zoneId=8, qty=-1, label="" },--Patch8_3: Void-Touched Cloth
-	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine now!" },--Patch8_3: Voidwarped Relic Fragment
+	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Voidwarped Relic Fragment
 	[43] = { itemId=174927, zoneId=1, qty=-1, label="" }, } --Patch8_3: Zan-Tien Lasso
 data.arrReputation = {	[1] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
 	[2] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia
@@ -273,21 +275,3 @@ data.arrTimeless = {	[1] = { itemId=103642, zoneId=4, qty=-1, label="" },--Timel
 	[3] = { itemId=104346, zoneId=4, qty=-1, label="" },--Timeless: Golden Glider
 	[4] = { itemId=103641, zoneId=4, qty=-1, label="" },--Timeless: Singing Crystal
 	[5] = { itemId=104287, zoneId=4, qty=-1, label="" }, } --Timeless: Windfeather Plume
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
