@@ -19,14 +19,14 @@ data.kGetItemInfoVars = {'itemName', 'itemLink', 'itemRarity', 'itemLevel', 'ite
 	-- [id] = { itemId=ID, zoneId=ZoneSetID, qty=Qty, label="Label" }, } --Category: Item
 data.arrEssence= {	[1] = { itemId=169694, zoneId=10, qty=-1, label="" },--Essence: Aqueous Reliquary
 	[2] = { itemId=174288, zoneId=10, qty=-1, label="" },--Essence: Breath of Everlasting Spirit
-	[3] = { itemId=174279, zoneId=10, qty=-1, label="Combine Fragments Now!" },--Essence: Encrypted Ny'alothan Text
+	[3] = { itemId=174279, zoneId=10, qty=-1, label="" },--Essence: Encrypted Ny'alothan Text
 	[4] = { itemId=174287, zoneId=10, qty=-1, label="" },--Essence: Sparks of Unwavering Strength
-	[5] = { itemId=173282, zoneId=10, qty=-1, label="Combine Fragments Now!" }, } --Essence: Token of Death's Glee
+	[5] = { itemId=173282, zoneId=10, qty=-1, label="" }, } --Essence: Token of Death's Glee
 data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mechagon: Anti-Gravity Pack
-	[2] = { itemId=167062, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Armored Vaultbot Key
+	[2] = { itemId=167062, zoneId=5, qty=-1, label="" },--Mechagon: Armored Vaultbot Key
 	[3] = { itemId=168233, zoneId=5, qty=-1, label="" },--Mechagon: Bawld-371
 	[4] = { itemId=168045, zoneId=5, qty=-1, label="" },--Mechagon: Beastbot Power Pack
-	[5] = { itemId=167832, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Canned Minnows
+	[5] = { itemId=167832, zoneId=5, qty=-1, label="" },--Mechagon: Canned Minnows
 	[6] = { itemId=168327, zoneId=5, qty=-1, label="" },--Mechagon: Chain Ignitercoil
 	[7] = { itemId=166972, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Powerpack
 	[8] = { itemId=166973, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Repair Kit
@@ -37,7 +37,7 @@ data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mecha
 	[13] = { itemId=168217, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
 	[14] = { itemId=168952, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
 	[15] = { itemId=167649, zoneId=5, qty=-1, label="" },--Mechagon: Hundred-Fathom Lure
-	[16] = { itemId=167562, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Ionized Minnow
+	[16] = { itemId=167562, zoneId=5, qty=-1, label="" },--Mechagon: Ionized Minnow
 	[17] = { itemId=169872, zoneId=5, qty=-1, label="" },--Mechagon: Irontide Lockbox Key
 	[18] = { itemId=169878, zoneId=5, qty=-1, label="" },--Mechagon: Irradiated Undercoat
 	[19] = { itemId=168215, zoneId=5, qty=-1, label="" },--Mechagon: Machined Gear Assembly
@@ -220,7 +220,7 @@ data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazja
 	[63] = { itemId=170502, zoneId=6, qty=-1, label="" }, } --Nazjatar: Waterlogged Toolbox
 data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
 	[2] = { itemId=174761, zoneId=2, qty=-1, label="" },--Patch8_3: Aqir Relic
-	[3] = { itemId=174756, zoneId=2, qty=6, label="" },--Patch8_3: Aqir Relic Fragment
+	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Aqir Relic Fragment
 	[4] = { itemId=174352, zoneId=8, qty=-1, label="" },--Patch8_3: Baked Voidfin
 	[5] = { itemId=172494, zoneId=3, qty=-1, label="" },--Patch8_3: Baruk Idol
 	[6] = { itemId=171347, zoneId=8, qty=-1, label="" },--Patch8_3: Corrupted Bone Fragment
@@ -239,9 +239,9 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[19] = { itemId=168160, zoneId=2, qty=-1, label="" },--Patch8_3: Jeweled Scarab Figurine
 	[20] = { itemId=174351, zoneId=8, qty=-1, label="" },--Patch8_3: K'Bab
 	[21] = { itemId=174766, zoneId=1, qty=-1, label="" },--Patch8_3: Mantid Relic
-	[22] = { itemId=174760, zoneId=1, qty=6, label="" },--Patch8_3: Mantid Relic Fragment
+	[22] = { itemId=174760, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mantid Relic Fragment
 	[23] = { itemId=174767, zoneId=1, qty=-1, label="" },--Patch8_3: Mogu Relic
-	[24] = { itemId=174759, zoneId=1, qty=6, label="" },--Patch8_3: Mogu Relic Fragment
+	[24] = { itemId=174759, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mogu Relic Fragment
 	[25] = { itemId=174045, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Dark Portents
 	[26] = { itemId=174046, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Visions
 	[27] = { itemId=167027, zoneId=8, qty=-1, label="" },--Patch8_3: Portable Clarity Beam
@@ -255,11 +255,11 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[35] = { itemId=171208, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Amulet
 	[36] = { itemId=168267, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Figurine
 	[37] = { itemId=174765, zoneId=2, qty=-1, label="" },--Patch8_3: Tol'vir Relic
-	[38] = { itemId=174764, zoneId=2, qty=6, label="" },--Patch8_3: Tol'vir Relic Fragment
+	[38] = { itemId=174764, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Tol'vir Relic Fragment
 	[39] = { itemId=173363, zoneId=8, qty=-1, label="" },--Patch8_3: Vessel of Horrific Visions
 	[40] = { itemId=173293, zoneId=8, qty=-1, label="" },--Patch8_3: Vial of Self Preservation
 	[41] = { itemId=171334, zoneId=8, qty=-1, label="" },--Patch8_3: Void-Touched Cloth
-	[42] = { itemId=174758, zoneId=1, qty=6, label="" },--Patch8_3: Voidwarped Relic Fragment
+	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Voidwarped Relic Fragment
 	[43] = { itemId=174927, zoneId=1, qty=-1, label="" }, } --Patch8_3: Zan-Tien Lasso
 data.arrReputation = {	[1] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
 	[2] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia
@@ -277,3 +277,17 @@ data.arrTimeless = {	[1] = { itemId=103642, zoneId=4, qty=-1, label="" },--Timel
 	[3] = { itemId=104346, zoneId=4, qty=-1, label="" },--Timeless: Golden Glider
 	[4] = { itemId=103641, zoneId=4, qty=-1, label="" },--Timeless: Singing Crystal
 	[5] = { itemId=104287, zoneId=4, qty=-1, label="" }, } --Timeless: Windfeather Plume
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
