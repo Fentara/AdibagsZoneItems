@@ -11,4 +11,4 @@
 06.01.20  v 1.08.3b  Bug fixes to nil ZONE_ITEMS array for testing, added test toggle
 06.01.20  v 1.08.4b  Bug fixes to nil ZONE_ITEMS from Defmaster64
 06.01.20  v 1.08.5b  Bug fixes to nil ZONE_ITEMS 
-06.01.20  v 1.1.0  Full rewrite of both data file and item filtering code. Rearranged options UI.
+06.01.20  v 1.1.0    Full rewrite of both data file and item filtering code. Rearranged options UI.

@@ -19,13 +19,14 @@ data.kGetItemInfoVars = {'itemName', 'itemLink', 'itemRarity', 'itemLevel', 'ite
 	-- [id] = { itemId=ID, zoneId=ZoneSetID, qty=Qty, label="Label" }, } --Category: Item
 data.arrEssence= {	[1] = { itemId=169694, zoneId=10, qty=-1, label="" },--Essence: Aqueous Reliquary
 	[2] = { itemId=174288, zoneId=10, qty=-1, label="" },--Essence: Breath of Everlasting Spirit
-	[3] = { itemId=174279, zoneId=10, qty=-1, label="" },--Essence: Encrypted Ny'alothan Text
-	[4] = { itemId=174287, zoneId=10, qty=-1, label="" }, } --Essence: Sparks of Unwavering Strength
+	[3] = { itemId=174279, zoneId=10, qty=-1, label="Combine Fragments Now!" },--Essence: Encrypted Ny'alothan Text
+	[4] = { itemId=174287, zoneId=10, qty=-1, label="" },--Essence: Sparks of Unwavering Strength
+	[5] = { itemId=173282, zoneId=10, qty=-1, label="Combine Fragments Now!" }, } --Essence: Token of Death's Glee
 data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mechagon: Anti-Gravity Pack
-	[2] = { itemId=167062, zoneId=5, qty=-1, label="" },--Mechagon: Armored Vaultbot Key
+	[2] = { itemId=167062, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Armored Vaultbot Key
 	[3] = { itemId=168233, zoneId=5, qty=-1, label="" },--Mechagon: Bawld-371
 	[4] = { itemId=168045, zoneId=5, qty=-1, label="" },--Mechagon: Beastbot Power Pack
-	[5] = { itemId=167832, zoneId=5, qty=-1, label="" },--Mechagon: Canned Minnows
+	[5] = { itemId=167832, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Canned Minnows
 	[6] = { itemId=168327, zoneId=5, qty=-1, label="" },--Mechagon: Chain Ignitercoil
 	[7] = { itemId=166972, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Powerpack
 	[8] = { itemId=166973, zoneId=5, qty=-1, label="" },--Mechagon: Emergency Repair Kit
@@ -36,7 +37,7 @@ data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mecha
 	[13] = { itemId=168217, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
 	[14] = { itemId=168952, zoneId=5, qty=-1, label="" },--Mechagon: Hardened Spring
 	[15] = { itemId=167649, zoneId=5, qty=-1, label="" },--Mechagon: Hundred-Fathom Lure
-	[16] = { itemId=167562, zoneId=5, qty=-1, label="" },--Mechagon: Ionized Minnow
+	[16] = { itemId=167562, zoneId=5, qty=-1, label="Combine Fragments Now!" },--Mechagon: Ionized Minnow
 	[17] = { itemId=169872, zoneId=5, qty=-1, label="" },--Mechagon: Irontide Lockbox Key
 	[18] = { itemId=169878, zoneId=5, qty=-1, label="" },--Mechagon: Irradiated Undercoat
 	[19] = { itemId=168215, zoneId=5, qty=-1, label="" },--Mechagon: Machined Gear Assembly
@@ -73,23 +74,23 @@ data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missi
 	[17] = { itemId=114745, zoneId=11, qty=-1, label="" },--Missions: Braced Armor Enhancement
 	[18] = { itemId=147348, zoneId=11, qty=-1, label="" },--Missions: Bulky Armor Set
 	[19] = { itemId=113823, zoneId=11, qty=-1, label="" },--Missions: Crusted Iron Horde Pauldrons
-	[20] = { itemId=122583, zoneId=11, qty=-1, label="" },--Missions: Grease Monkey Guide
-	[21] = { itemId=118340, zoneId=11, qty=-1, label="" },--Missions: Cyclical Power Converter
-	[22] = { itemId=128308, zoneId=11, qty=-1, label="" },--Missions: Draenic Armor Set
-	[23] = { itemId=128307, zoneId=11, qty=-1, label="" },--Missions: Draenic Weaponry
-	[24] = { itemId=152444, zoneId=9, qty=-1, label="" },--Missions: Exalted Xenedar Hammer
-	[25] = { itemId=127891, zoneId=11, qty=-1, label="" },--Missions: Extra Quarters
-	[26] = { itemId=127884, zoneId=11, qty=-1, label="" },--Missions: Felsmoke Launcher
-	[27] = { itemId=122272, zoneId=11, qty=-1, label="" },--Missions: Follower Ability Retraining Manual
-	[28] = { itemId=118354, zoneId=11, qty=-1, label="" },--Missions: Follower Retraining Certificate
-	[29] = { itemId=122273, zoneId=11, qty=-1, label="" },--Missions: Follower Trait Retraining Guide
-	[30] = { itemId=114808, zoneId=11, qty=-1, label="" },--Missions: Fortified Armor Enhancement
-	[31] = { itemId=128314, zoneId=11, qty=-1, label="" },--Missions: Frozen Arms of a Hero
-	[32] = { itemId=128257, zoneId=11, qty=-1, label="" },--Missions: Ghostly Spyglass
-	[33] = { itemId=139419, zoneId=11, qty=-1, label="" },--Missions: Golden Banana
-	[34] = { itemId=114746, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Armor Set
-	[35] = { itemId=114622, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Weaponry
-	[36] = { itemId=118099, zoneId=11, qty=-1, label="" },--Missions: Gorian Artifact Fragment
+	[20] = { itemId=118340, zoneId=11, qty=-1, label="" },--Missions: Cyclical Power Converter
+	[21] = { itemId=128308, zoneId=11, qty=-1, label="" },--Missions: Draenic Armor Set
+	[22] = { itemId=128307, zoneId=11, qty=-1, label="" },--Missions: Draenic Weaponry
+	[23] = { itemId=152444, zoneId=9, qty=-1, label="" },--Missions: Exalted Xenedar Hammer
+	[24] = { itemId=127891, zoneId=11, qty=-1, label="" },--Missions: Extra Quarters
+	[25] = { itemId=127884, zoneId=11, qty=-1, label="" },--Missions: Felsmoke Launcher
+	[26] = { itemId=122272, zoneId=11, qty=-1, label="" },--Missions: Follower Ability Retraining Manual
+	[27] = { itemId=118354, zoneId=11, qty=-1, label="" },--Missions: Follower Retraining Certificate
+	[28] = { itemId=122273, zoneId=11, qty=-1, label="" },--Missions: Follower Trait Retraining Guide
+	[29] = { itemId=114808, zoneId=11, qty=-1, label="" },--Missions: Fortified Armor Enhancement
+	[30] = { itemId=128314, zoneId=11, qty=-1, label="" },--Missions: Frozen Arms of a Hero
+	[31] = { itemId=128257, zoneId=11, qty=-1, label="" },--Missions: Ghostly Spyglass
+	[32] = { itemId=139419, zoneId=11, qty=-1, label="" },--Missions: Golden Banana
+	[33] = { itemId=114746, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Armor Set
+	[34] = { itemId=114622, zoneId=11, qty=-1, label="" },--Missions: Goredrenched Weaponry
+	[35] = { itemId=118099, zoneId=11, qty=-1, label="" },--Missions: Gorian Artifact Fragment
+	[36] = { itemId=122583, zoneId=11, qty=-1, label="" },--Missions: Grease Monkey Guide
 	[37] = { itemId=122582, zoneId=11, qty=-1, label="" },--Missions: Guide to Arakkoa Relations
 	[38] = { itemId=127881, zoneId=11, qty=-1, label="" },--Missions: Gyroscopic Internal Stabilizer
 	[39] = { itemId=139418, zoneId=9, qty=-1, label="" },--Missions: Healing Stream Totem
@@ -151,8 +152,9 @@ data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missi
 	[95] = { itemId=114616, zoneId=11, qty=-1, label="" },--Missions: War Ravaged Weaponry
 	[96] = { itemId=120302, zoneId=11, qty=-1, label="" },--Missions: Weapon Enhancement Token
 	[97] = { itemId=139420, zoneId=9, qty=-1, label="" },--Missions: Wild Mushroom
-	[98] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
-	[99] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
+	[98] = { itemId=122584, zoneId=11, qty=-1, label="" },--Missions: Winning the Wildlings
+	[99] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
+	[100] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
 data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazjatar: Abyss Pearl
 	[2] = { itemId=170079, zoneId=12, qty=-1, label="" },--Nazjatar: Abyssal Conch
 	[3] = { itemId=170184, zoneId=12, qty=-1, label="" },--Nazjatar: Ancient Reefwalker Bark
@@ -218,7 +220,7 @@ data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazja
 	[63] = { itemId=170502, zoneId=6, qty=-1, label="" }, } --Nazjatar: Waterlogged Toolbox
 data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
 	[2] = { itemId=174761, zoneId=2, qty=-1, label="" },--Patch8_3: Aqir Relic
-	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Aqir Relic Fragment
+	[3] = { itemId=174756, zoneId=2, qty=6, label="" },--Patch8_3: Aqir Relic Fragment
 	[4] = { itemId=174352, zoneId=8, qty=-1, label="" },--Patch8_3: Baked Voidfin
 	[5] = { itemId=172494, zoneId=3, qty=-1, label="" },--Patch8_3: Baruk Idol
 	[6] = { itemId=171347, zoneId=8, qty=-1, label="" },--Patch8_3: Corrupted Bone Fragment
@@ -237,9 +239,9 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[19] = { itemId=168160, zoneId=2, qty=-1, label="" },--Patch8_3: Jeweled Scarab Figurine
 	[20] = { itemId=174351, zoneId=8, qty=-1, label="" },--Patch8_3: K'Bab
 	[21] = { itemId=174766, zoneId=1, qty=-1, label="" },--Patch8_3: Mantid Relic
-	[22] = { itemId=174760, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mantid Relic Fragment
+	[22] = { itemId=174760, zoneId=1, qty=6, label="" },--Patch8_3: Mantid Relic Fragment
 	[23] = { itemId=174767, zoneId=1, qty=-1, label="" },--Patch8_3: Mogu Relic
-	[24] = { itemId=174759, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Mogu Relic Fragment
+	[24] = { itemId=174759, zoneId=1, qty=6, label="" },--Patch8_3: Mogu Relic Fragment
 	[25] = { itemId=174045, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Dark Portents
 	[26] = { itemId=174046, zoneId=8, qty=-1, label="" },--Patch8_3: Orb of Visions
 	[27] = { itemId=167027, zoneId=8, qty=-1, label="" },--Patch8_3: Portable Clarity Beam
@@ -253,11 +255,11 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[35] = { itemId=171208, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Amulet
 	[36] = { itemId=168267, zoneId=2, qty=-1, label="" },--Patch8_3: Suntouched Figurine
 	[37] = { itemId=174765, zoneId=2, qty=-1, label="" },--Patch8_3: Tol'vir Relic
-	[38] = { itemId=174764, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Tol'vir Relic Fragment
+	[38] = { itemId=174764, zoneId=2, qty=6, label="" },--Patch8_3: Tol'vir Relic Fragment
 	[39] = { itemId=173363, zoneId=8, qty=-1, label="" },--Patch8_3: Vessel of Horrific Visions
 	[40] = { itemId=173293, zoneId=8, qty=-1, label="" },--Patch8_3: Vial of Self Preservation
 	[41] = { itemId=171334, zoneId=8, qty=-1, label="" },--Patch8_3: Void-Touched Cloth
-	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Voidwarped Relic Fragment
+	[42] = { itemId=174758, zoneId=1, qty=6, label="" },--Patch8_3: Voidwarped Relic Fragment
 	[43] = { itemId=174927, zoneId=1, qty=-1, label="" }, } --Patch8_3: Zan-Tien Lasso
 data.arrReputation = {	[1] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
 	[2] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia

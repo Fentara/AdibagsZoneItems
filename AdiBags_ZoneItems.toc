@@ -6,7 +6,7 @@
 ## Title: AdiBags - Zone Items
 ## Notes: AdiBags filters for Nazjatar and Mechagon items
 ## Author: Eek - Earthen Ring
-## Version: 1.1.0
+## Version: v 1.1.0
 ## X-Date: 2020-06-09
 ## X-License: GPL v3
 ## X-Category: Bags & Inventory
