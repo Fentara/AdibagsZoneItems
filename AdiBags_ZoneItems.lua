@@ -352,7 +352,7 @@ function setFilter:Filter(slotData)
   ---]]
   -- BfA Azerite Gear
   if self.db.profile.groupAzerite and C_AzeriteEmpoweredItem.IsAzeriteEmpoweredItemByID(itemLink) == true then
-    return kPfx .. 'Azerite '.. itemType .. kSfx, kCategory
+    return 'Azerite '.. GetItemClassInfo(LE_ITEM_CLASS_ARMOR) , kCategory
   end
   
 
