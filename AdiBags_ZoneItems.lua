@@ -8,7 +8,8 @@ local setFilter = addon:RegisterFilter("ZoneItems", 93, 'ABEvent-1.0')
 setFilter.uiName = L['Zone Specific Items']
 setFilter.uiDesc = L['Group zone specific items together.']
 local addonName, data  = ...
-local Ggbug = true
+
+local Ggbug = false
 if Ggbug == true then print(addon , 'loaded.') end
 -- debugging values
 local debugBagSlot = {1,21}
@@ -24,11 +25,15 @@ local kPfx2 = '|cff3CE13F' -- bright green1
 local kPfx3 = '|cff2FEB77' -- bright green2
 local kSfx = '|r'
 local kCurrBoAMin = 385
+local kLowGearThreshold = 40
+local kMinExpansionIlevel = 201
 -- Set special top-of-bags category for current zone's items
 local CURRENT_ZONE_ITEM = 'Current Zone Item'
+local CURRENT_ZONE_ITEM2 = 'Current Zone'
 local PRIORITY_ITEM = 'Attention!'
 addon:SetCategoryOrder(CURRENT_ZONE_ITEM, 80)
 addon:SetCategoryOrder(PRIORITY_ITEM, 81)
+addon:SetCategoryOrder(CURRENT_ZONE_ITEM2, 79) -- To be ordered after zone match items
 -- Global Variables
 local currZoneId, currMap, currMapID, mapName, parentMapID, parentMapName
 
@@ -53,6 +58,8 @@ function setFilter:OnInitialize(b)
       groupCorrupted = true,
 		  groupRepItems  = true,
       zonePriority = true,
+      groupAzerite = true,
+      groupLowGear = false,
   },
     char = {  },
   })
@@ -61,7 +68,7 @@ function setFilter:Update()
   self:SendMessage('AdiBags_FiltersChanged')
 end
 function setFilter:OnEnable()
-  addon:OnEnable()
+  addon:UpdateFilters()
 end
 function setFilter:OnDisable()
   addon:UpdateFilters()
@@ -72,13 +79,13 @@ function setFilter:GetOptions()
       name = L['Enable Zone Item groups'],
       desc = L['Check this if you want to automatically seperate Nazjatar and Mechagon items.'],
       type = 'toggle',
-      order = 25,
+      order = 20,
     },
     groupSetCurrentFirst = {
       name = L['Current Zone First in Bags'],
       type = L['group'],
       inline = true,
-      order = 20,
+      order = 24,
       args = {
         _desc = {
           name = L['Group items relevant for the current zone(s) to top of bags for quicker access.'],
@@ -97,7 +104,7 @@ function setFilter:GetOptions()
       name = L['Battle for Azeroth Groups'],
       type = L['group'],
       inline = true,
-      order = 26,
+      order = 28,
       args = {
         _desc = {
           name = L['Select optional additional sub-groupings.'],
@@ -134,6 +141,19 @@ function setFilter:GetOptions()
           type = 'toggle',
           order = 34,
         },
+        groupAzerite = {
+          name = L['Azerite Armor'],
+          desc = L['Group corrupted items.'],
+          type = 'toggle',
+          order = 35,
+        },
+        --[[ groupLowGear = {
+          name = L['Low iLevel Seperated'],
+          desc = L['Group current expansion low item level gear separately.'],
+          type = 'toggle',
+          order = 36,
+        }, ]]
+
       }
     },
     otherMiscGroups = {
@@ -245,7 +265,7 @@ function setFilter:Filter(slotData)
 	bagItemID = slotData.itemId
   --funky but GetItemInfo doesn't return corruption info so call specifically for itemLink
   itemLink = GetContainerItemLink(slotData.bag, slotData.slot)
-  local itemName,_, itemRarity, itemLevel,itemMinLevel, itemType, itemSubType,_,_, _, _, itemClassID, itemSubClassID, bindType, expacID = GetItemInfo(itemLink)
+  local itemName,_, itemRarity, itemLevel,itemMinLevel, itemType, itemSubType,_,_, _, _, itemClassID, itemSubClassID, bindType, expacID, itemSetId = GetItemInfo(itemLink)
   if itemLevel == nil then itemLevel = 0 end
 
   -- Start checking groupings
@@ -263,7 +283,7 @@ function setFilter:Filter(slotData)
   if self.db.profile.groupCorrupted and IsCorruptedItem(itemLink) == true then
     local isZone, zoneGroupName =setFilter:isCurrentZone(10)
     if isZone and self.db.profile.zonePriority then 
-      return kPfx2 .. CORRUPTED_ITEM_LOOT_LABEL.. kSfx, CURRENT_ZONE_ITEM
+      return kPfx2 .. CORRUPTED_ITEM_LOOT_LABEL.. kSfx, CURRENT_ZONE_ITEM2
     else
       return kPfx .. CORRUPTED_ITEM_LOOT_LABEL.. kSfx, kCategory
     end
@@ -303,8 +323,42 @@ function setFilter:Filter(slotData)
     local itemFound, groupLabel = setFilter:checkItem(bagItemID, data.arrReputation) 
     if itemFound == true  then return groupLabel, retCategory end
   end
+--[[
+  -- PLACEHOLDER CODE FOR LOW ILEVEL/CURRENT EXPANSION GEAR FILTER
+    if self.db.profile.groupLowGear and (itemClassID == LE_ITEM_CLASS_WEAPON or itemClassID == LE_ITEM_CLASS_ARMOR) then
+    local avgItemLevel, avgItemLevelEquipped, avgItemLevelPvp = GetAverageItemLevel()
+    -- exception for items in item sets
+     for _, equipmentSetID in pairs(GetEquipmentSetIDs()) do
+      GetEquipmentSetInfo(equipmentSetID)
+      local itemIDs = GetItemIDs(equipmentSetID)b
+      local locations = GetItemLocations(equipmentSetID)
+      if itemIDs and locations then
+        for invId, location in pairs(locations) do
+          if location ~= 0 and location ~= 1 and itemIDs[invId] ~= 0 then
+            local player, bank, bags, voidstorage, slot, container  = EquipmentManager_UnpackLocation(location)
+            local slotId
+            if bags and slot and container then
+              slotId = GetSlotId(container, slot)
+            elseif bank and slot then
+              slotId = GetSlotId(BANK_CONTAINER, slot - BANK_CONTAINER_INVENTORY_OFFSET)
+            elseif not (player or voidstorage) or not slot then
+              missing = true
+            end
+            if slotId and not self.slots[slotId] then
+              self.slots[slotId] = name 
+
+    if itemLevel >= kMinExpansionIlevel and itemLevel <= (avgItemLevel-kLowGearThreshold) then return kPfx .. L['BfA Gear, Low iLevel'] .. kSfx, itemType end
+  end
+  ---]]
+  -- BfA Azerite Gear
+  if self.db.profile.groupAzerite and C_AzeriteEmpoweredItem.IsAzeriteEmpoweredItemByID(itemLink) == true then
+    return kPfx .. 'Azerite '.. itemType .. kSfx, kCategory
+  end
+  
+
    -- BoA Gear Tokens, non-obsolete, check last
-  if self.db.profile.groupBoATokens == true and itemLevel >= kCurrBoAMin and (itemClassID == LE_ITEM_CLASS_ARMOR or itemSubClassID == LE_ITEM_CLASS_WEAPON) then
+  --if self.db.profile.groupBoATokens == true and itemLevel >= kCurrBoAMin and (itemClassID == LE_ITEM_CLASS_ARMOR or itemSubClassID == LE_ITEM_CLASS_WEAPON) then
+    if self.db.profile.groupBoATokens == true and itemLevel >= kCurrBoAMin then
     tooltip:SetOwner(UIParent,"ANCHOR_NONE")
     tooltip:ClearLines()
     if slotData.bag == BANK_CONTAINER then
