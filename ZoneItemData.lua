@@ -1,28 +1,29 @@
-local _, data  = ...        	 
+local addonName, addon = ...	 
 -- ZoneID Data	 
-data.arrZoneCodes = {	 
-[1]= { zGroup="Vale", zGroupIds={1530,1570,380,390} },	 
-[2]= { zGroup="Uldum", zGroupIds={1571,249,1527} },	 
-[3]= { zGroup="Vale/Uldum", zGroupIds={1571,249,1527,1530,1570,380} },	 
-[4]= { zGroup="Timeless Isle", zGroupIds={554} },	 
-[5]= { zGroup="Mechagon", zGroupIds={1462} },	 
-[6]= { zGroup="Nazjatar", zGroupIds={1355} },	 
-[7]= { zGroup="BfA Zones", zGroupIds={2161,2162,2160,2156,2103,2158,1504,1462} },	 
-[8]= { zGroup="Horrific Visions", zGroupIds={1469,1470, 1473} },	 
-[9]= { zGroup="Legion Missions", zGroupIds={647,648,626,717,734,735,24,702,695,747,719,831,883,887,726,739} },	 
-[10]= { zGroup="Heart Essence", zGroupIds={1473} },	 
-[11]= { zGroup="Garrison", zGroupIds={582,590,525} },	 
-[12]= { zGroup="REP: Nazjatar", zGroupIds={1355} },	 
-[13]= { zGroup="Reputation", zGroupIds={-1} } ,}	 
+addon.arrZoneCodes = {	 
+  [1]= { zGroup="Vale", zGroupIds={1530,1570,380,390} },	 
+  [2]= { zGroup="Uldum", zGroupIds={1571,249,1527} },	 
+  [3]= { zGroup="Vale/Uldum", zGroupIds={1571,249,1527,1530,1570,380} },	 
+  [4]= { zGroup="Timeless Isle", zGroupIds={554} },	 
+  [5]= { zGroup="Mechagon", zGroupIds={1462} },	 
+  [6]= { zGroup="Nazjatar", zGroupIds={1355} },	 
+  [7]= { zGroup="BfA Zones", zGroupIds={2161,2162,2160,2156,2103,2158,1504,1462} },	 
+  [8]= { zGroup="Horrific Visions", zGroupIds={1469,1470, 1473} },	 
+  [9]= { zGroup="Legion Missions", zGroupIds={647,648,626,717,734,735,24,702,695,747,719,831,883,887,726,739} },	 
+  [10]= { zGroup="Heart Essence", zGroupIds={1473} },	 
+  [11]= { zGroup="Garrison", zGroupIds={582,590,525} },	 
+  [12]= { zGroup="REP: Nazjatar", zGroupIds={1355} },	 
+  [13]= { zGroup="Reputation", zGroupIds={-1} },	 
+  [14]= { zGroup="Pet Battle", zGroupIds={-1} } ,}	 
 -- Debugging Item field names	 
-data.kGetItemInfoVars = {'itemName', 'itemLink', 'itemRarity', 'itemLevel', 'itemMinLevel', 'itemType', 'itemSubType', 'itemStackCount', 'itemEquipLoc', 'itemIcon', 'itemSellPrice', 'itemClassID', 'itemSubClassID', 'bindType', 'expacID', 'itemSetID', 'isCraftingReagent'}	 
-	-- [id] = { itemId=ID, zoneId=ZoneSetID, qty=Qty, label="Label" }, } --Category: Item
-data.arrEssence= {	[1] = { itemId=169694, zoneId=10, qty=-1, label="" },--Essence: Aqueous Reliquary
+addon.kGetItemInfoVars = {'itemName', 'itemLink', 'itemRarity', 'itemLevel', 'itemMinLevel', 'itemType', 'itemSubType', 'itemStackCount', 'itemEquipLoc', 'itemIcon', 'itemSellPrice', 'itemClassID', 'itemSubClassID', 'bindType', 'expacID', 'itemSetID', 'isCraftingReagent'}	 
+--	-- [id] = { itemId=ID, zoneId=ZoneSetID, qty=Qty, label="Label" }, } --Category: Item
+addon.arrEssence= {	[1] = { itemId=169694, zoneId=10, qty=-1, label="" },--Essence: Aqueous Reliquary
 	[2] = { itemId=174288, zoneId=10, qty=-1, label="" },--Essence: Breath of Everlasting Spirit
 	[3] = { itemId=174279, zoneId=10, qty=-1, label="" },--Essence: Encrypted Ny'alothan Text
 	[4] = { itemId=174287, zoneId=10, qty=-1, label="" },--Essence: Sparks of Unwavering Strength
 	[5] = { itemId=173282, zoneId=10, qty=-1, label="" }, } --Essence: Token of Death's Glee
-data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mechagon: Anti-Gravity Pack
+addon.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mechagon: Anti-Gravity Pack
 	[2] = { itemId=167062, zoneId=5, qty=-1, label="" },--Mechagon: Armored Vaultbot Key
 	[3] = { itemId=168233, zoneId=5, qty=-1, label="" },--Mechagon: Bawld-371
 	[4] = { itemId=168045, zoneId=5, qty=-1, label="" },--Mechagon: Beastbot Power Pack
@@ -55,7 +56,7 @@ data.arrMechagon = {	[1] = { itemId=169868, zoneId=5, qty=-1, label="" },--Mecha
 	[31] = { itemId=168951, zoneId=5, qty=-1, label="" },--Mechagon: Tempered Plating
 	[32] = { itemId=168213, zoneId=5, qty=-1, label="" },--Mechagon: Tensile Driveshaft
 	[33] = { itemId=167075, zoneId=5, qty=-1, label="" }, } --Mechagon: Ultrasafe Transporter: Mechagon
-data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missions: A Master Plan
+addon.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missions: A Master Plan
 	[2] = { itemId=127889, zoneId=11, qty=-1, label="" },--Missions: Ammo Reserves
 	[3] = { itemId=118344, zoneId=11, qty=-1, label="" },--Missions: Arcane Crystal
 	[4] = { itemId=120301, zoneId=11, qty=-1, label="" },--Missions: Armor Enhancement Token
@@ -155,7 +156,7 @@ data.arrMissions = {	[1] = { itemId=139428, zoneId=9, qty=-1, label="" },--Missi
 	[98] = { itemId=122584, zoneId=11, qty=-1, label="" },--Missions: Winning the Wildlings
 	[99] = { itemId=152446, zoneId=9, qty=-1, label="" },--Missions: Writ of Holy Orders
 	[100] = { itemId=152931, zoneId=9, qty=-1, label="" }, } --Missions: Xenic Tincture
-data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazjatar: Abyss Pearl
+addon.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazjatar: Abyss Pearl
 	[2] = { itemId=170079, zoneId=12, qty=-1, label="" },--Nazjatar: Abyssal Conch
 	[3] = { itemId=170184, zoneId=12, qty=-1, label="" },--Nazjatar: Ancient Reefwalker Bark
 	[4] = { itemId=167910, zoneId=6, qty=-1, label="" },--Nazjatar: Bag of Who-Knows-What
@@ -218,7 +219,7 @@ data.arrNazjatar = {	[1] = { itemId=170186, zoneId=6, qty=-1, label="" },--Nazja
 	[61] = { itemId=169942, zoneId=12, qty=-1, label="" },--Nazjatar: Vibrant Sea Blossom
 	[62] = { itemId=170162, zoneId=6, qty=-1, label="" },--Nazjatar: Waterlogged Toolbox
 	[63] = { itemId=170502, zoneId=6, qty=-1, label="" }, } --Nazjatar: Waterlogged Toolbox
-data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
+addon.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch8_3: Anima Orb
 	[2] = { itemId=174761, zoneId=2, qty=-1, label="" },--Patch8_3: Aqir Relic
 	[3] = { itemId=174756, zoneId=2, qty=6, label="Combine Fragments Now!" },--Patch8_3: Aqir Relic Fragment
 	[4] = { itemId=174352, zoneId=8, qty=-1, label="" },--Patch8_3: Baked Voidfin
@@ -261,31 +262,134 @@ data.arrPatch8_3 = {	[1] = { itemId=172495, zoneId=1, qty=-1, label="" },--Patch
 	[41] = { itemId=171334, zoneId=8, qty=-1, label="" },--Patch8_3: Void-Touched Cloth
 	[42] = { itemId=174758, zoneId=1, qty=6, label="Combine Fragments Now!" },--Patch8_3: Voidwarped Relic Fragment
 	[43] = { itemId=174927, zoneId=1, qty=-1, label="" }, } --Patch8_3: Zan-Tien Lasso
-data.arrReputation = {	[1] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
-	[2] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia
-	[3] = { itemId=150926, zoneId=13, qty=-1, label="" },--Reputation: Greater Dreamweaver Insignia
-	[4] = { itemId=152464, zoneId=13, qty=-1, label="" },--Reputation: Greater Legionfall Insignia
-	[5] = { itemId=150925, zoneId=13, qty=-1, label="" },--Reputation: Greater Valarjar Insignia
-	[6] = { itemId=146950, zoneId=13, qty=-1, label="" },--Reputation: Legionfall Insignia
-	[7] = { itemId=117492, zoneId=13, qty=-1, label="" },--Reputation: Relic of Rukhmar
-	[8] = { itemId=94225, zoneId=13, qty=-1, label="" },--Reputation: Stolen Celestial Insignia
-	[9] = { itemId=94227, zoneId=13, qty=-1, label="" },--Reputation: Stolen Golden Lotus Insignia
-	[10] = { itemId=94226, zoneId=13, qty=-1, label="" },--Reputation: Stolen Klaxxi Insignia
-	[11] = { itemId=94223, zoneId=13, qty=-1, label="" }, } --Reputation: Stolen Shado-Pan Insignia
-data.arrTimeless = {	[1] = { itemId=103642, zoneId=4, qty=-1, label="" },--Timeless: Book of the Ages
+addon.arrReputation = {	[1] = { itemId=146945, zoneId=13, qty=-1, label="" },--Reputation: Wardens Insignia
+	[2] = { itemId=146941, zoneId=13, qty=-1, label="" },--Reputation: Valarjar Insignia
+	[3] = { itemId=146946, zoneId=13, qty=-1, label="" },--Reputation: Nightfallen Insignia
+	[4] = { itemId=146950, zoneId=13, qty=-1, label="" },--Reputation: Legionfall Insignia
+	[5] = { itemId=146944, zoneId=13, qty=-1, label="" },--Reputation: Highmountain Tribe Insignia
+	[6] = { itemId=146942, zoneId=13, qty=-1, label="" },--Reputation: Dreamweaver Insignia
+	[7] = { itemId=146943, zoneId=13, qty=-1, label="" },--Reputation: Court of Farondis Insignia
+	[8] = { itemId=152955, zoneId=13, qty=-1, label="" },--Reputation: Greater Army of the Light Insignia
+	[9] = { itemId=152957, zoneId=13, qty=-1, label="" },--Reputation: Army of the Light Insignia
+	[10] = { itemId=150929, zoneId=13, qty=-1, label="" },--Reputation: Greater Wardens Insignia
+	[11] = { itemId=150925, zoneId=13, qty=-1, label="" },--Reputation: Greater Valarjar Insignia
+	[12] = { itemId=150930, zoneId=13, qty=-1, label="" },--Reputation: Greater Nightfallen Insignia
+	[13] = { itemId=152464, zoneId=13, qty=-1, label="" },--Reputation: Greater Legionfall Insignia
+	[14] = { itemId=150928, zoneId=13, qty=-1, label="" },--Reputation: Greater Highmountain Tribe Insignia
+	[15] = { itemId=150926, zoneId=13, qty=-1, label="" },--Reputation: Greater Dreamweaver Insignia
+	[16] = { itemId=150927, zoneId=13, qty=-1, label="" },--Reputation: Greater Court of Farondis Insignia
+	[17] = { itemId=117492, zoneId=13, qty=-1, label="" },--Reputation: Relic of Rukhmar
+	[18] = { itemId=94225, zoneId=13, qty=-1, label="" },--Reputation: Stolen Celestial Insignia
+	[19] = { itemId=94227, zoneId=13, qty=-1, label="" },--Reputation: Stolen Golden Lotus Insignia
+	[20] = { itemId=94226, zoneId=13, qty=-1, label="" },--Reputation: Stolen Klaxxi Insignia
+	[21] = { itemId=94223, zoneId=13, qty=-1, label="" }, } --Reputation: Stolen Shado-Pan Insignia
+addon.arrTimeless = {	[1] = { itemId=103642, zoneId=4, qty=-1, label="" },--Timeless: Book of the Ages
 	[2] = { itemId=103643, zoneId=4, qty=-1, label="" },--Timeless: Dew of Eternal Morning
 	[3] = { itemId=104346, zoneId=4, qty=-1, label="" },--Timeless: Golden Glider
 	[4] = { itemId=103641, zoneId=4, qty=-1, label="" },--Timeless: Singing Crystal
 	[5] = { itemId=104287, zoneId=4, qty=-1, label="" }, } --Timeless: Windfeather Plume
 	
+--<GLOBALS      	
+local _G = _G      	
+local GetLocale = _G.GetLocale      	
+local pairs = _G.pairs      	
+local rawset = _G.rawset      	
+local setmetatable = _G.setmetatable      	
+local tostring = _G.tostring      	
+--GLOBALS>      	
+      	
+local L = setmetatable({}, {      	
+  __index = function(self, key)    	
+    if key ~= nil then  	
+      --[===[@debug@	
 	
+      addon:Debug('Missing locale', tostring(key))	
+      --@end-debug@]===]	
+      rawset(self, key, tostring(key))	
+    end  	
+    return tostring(key)  	
+  end,    	
+})      	
+addon.L = L      	
 	
+local locale = GetLocale()	
+----enUS	 
+	 
+   L["Zone Specific Items"] = true	 
+   L["Group zone specific items together."] = true	 
+   L["Current Zone First in Bags"] = true	 
+   L["Group items relevant for the current zone(s) to top of bags for quicker access."] = true	 
+   L["Enable"] = true	 
+   L["Only a monster would disable this feature. You aren't a monster now, are you?"] = true	 
+   L["Battle for Azeroth Groups,"] = true	 
+   L["Select optional additional sub-groupings."] = true	 
+   L["Mechagon"] = true	 
+   L["Group items specific to Mechagon seperately.,"] = true	 
+   L["Nazjatar"] = true	 
+   L["Group items specific to Nazjatar seperately."] = true	 
+   L["Heart Essence"] = true	 
+   L["Group Heart of Azeroth essences seperately."] = true	 
+   L["Uldum, Vale, Visions"] = true	 
+   L["Group items added in Patch 8.3 for Uldum, Horrific Visions, and Vale of Eternal Blossoms."] = true	 
+   L["Group corrupted items."] = true	 
+   L["Current Zone Item"] = true	 
+   L["Current Zone"] = true	 
+   L["Current BoA"] = true	 
+   L["Horrific Visions"] = true	 
+   L["Garrison"] = true	 
+	 
+----deDE	 
+if locale=="deDE" then 	 
+   L["Zone Specific Items"] = "Zonenspezifische Gegenstände"	 
+   L["Group zone specific items together."] = "Zonenspezifische Gegenstände gruppieren."	 
+   L["Current Zone First in Bags"] = "Aktuelle Zone zuerst anzeigen"	 
+   L["Group items relevant for the current zone(s) to top of bags for quicker access."] = "Gruppiert relevante Gegenstände für die aktuelle Zone und zeigt diese für schnelleren Zugriff zuerst an."	 
+   L["Enable"] = "Aktivieren"	 
+   L["Only a monster would disable this feature. You aren't a monster now, are you?"] = "Nur ein Monster würde diese Funktion deaktivieren. Du bist doch kein Monster, oder?"	 
+   L["Battle for Azeroth Groups,"] = "Battle for Azeroth Gruppen,"	 
+   L["Select optional additional sub-groupings."] = "Wähle optionale zusätzliche Untergruppen aus."	 
+   L["Mechagon"] = "Mechagon"	 
+   L["Group items specific to Mechagon seperately.,"] = "Gruppiere Gegenstände aus Mechagon getrennt.,"	 
+   L["Nazjatar"] = "Nazjatar"	 
+   L["Group items specific to Nazjatar seperately."] = "Gruppiere Gegenstände aus Nazjatar getrennt."	 
+   L["Heart Essence"] = "Herzessenzen"	 
+   L["Group Heart of Azeroth essences seperately."] = "Gruppiere Essenzen für das Herz von Azeroth getrennt."	 
+   L["Uldum, Vale, Visions"] = "Uldum, Tal, Visionen"	 
+   L["Group items added in Patch 8.3 for Uldum, Horrific Visions, and Vale of Eternal Blossoms."] = "Gruppiere Gegenstände, die in Patch 8.3 für Uldum, verstörende Visionen und dem Tal der ewigen Blüten, hinzugefügt wurden."	 
+   L["Group corrupted items."] = "Gruppiere verderbte Gegenstände"	 
+   L["Current Zone Item"] = "Aktuelle Zonengegenstände"	 
+   L["Current Zone"] = "Aktuelle Zone"	 
+   L["Current BoA"] = "Aktuelle BoA"	 
+   L["Horrific Visions"] = "TBD"	 
+   L["Garrison"] = "TBD"	 
+end	 
+----esMX	 
+if locale=="esMX" then 	 
+   L["Zone Specific Items"] = "Artículos Específicos de la Zona"	 
+   L["Group zone specific items together."] = "Agrupe elementos específicos de la zona."	 
+   L["Current Zone First in Bags"] = "Zona actual primero en bolsas"	 
+   L["Group items relevant for the current zone(s) to top of bags for quicker access."] = "Agrupe los elementos relevantes para las zonas actuales en la parte superior de las bolsas para un acceso más rápido."	 
+   L["Enable"] = "Habilitar"	 
+   L["Only a monster would disable this feature. You aren't a monster now, are you?"] = "Solo un monstruo deshabilitaría esta función. No eres un monstruo ahora, ¿verdad?"	 
+   L["Battle for Azeroth Groups,"] = "Batalla por los grupos de Azeroth,"	 
+   L["Select optional additional sub-groupings."] = "Seleccione subgrupos adicionales opcionales."	 
+   L["Mechagon"] = "Mechagon"	 
+   L["Group items specific to Mechagon seperately.,"] = "Agrupe elementos específicos de Mechagon por separado."	 
+   L["Nazjatar"] = "Nazjatar"	 
+   L["Group items specific to Nazjatar seperately."] = "Agrupe elementos específicos de Nazjatar por separado."	 
+   L["Heart Essence"] = "Esencias del corazón"	 
+   L["Group Heart of Azeroth essences seperately."] = "Agrupe las esencias de Corazón de Azeroth por separado."	 
+   L["Uldum, Vale, Visions"] = "Uldum, Valle, Visiones"	 
+   L["Group items added in Patch 8.3 for Uldum, Horrific Visions, and Vale of Eternal Blossoms."] = "Agrupe los elementos agregados en el Parche 8.3 para Uldum,Visiones horribles y valleof Flores Eternas."	 
+   L["Group corrupted items."] = "Agrupar elementos corruptos."	 
+   L["Current Zone Item"] = "Elemento de zona actual"	 
+   L["Current Zone"] = "Zona actual"	 
+   L["Current BoA"] = "BoA actual"	 
+   L["Horrific Visions"] = "Visiones Horribles"	 
+   L["Garrison"] = "La Fortaleza"	 
+end	 
 	
-	
-	
-	
-	
-	
+for k,v in pairs(L) do if v == true then L[k] = k end end	
 	
 	
 	
